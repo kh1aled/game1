@@ -1,0 +1,3369 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content=" This Is Description For Project 7" />
+
+    <title>GAME1</title>
+    <link rel="shortcut icon" href="./media/images/pray.svg" type="image/x-icon">
+    <!--Bootstrap File-->
+    <link rel="stylesheet" href="./styles/bootstrap.min.css" />
+    <!--Main Css File-->
+    <link rel="stylesheet" href="./styles/main.css?cvdfaf" />
+    <!--Icons Library-->
+    <link rel="stylesheet" href="./styles/all.min.css" />
+    <!--swiper library-->
+    <!-- تحميل CSS الخاص بـ Swiper -->
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+
+
+  </head>
+
+  <body >
+    <div class="pause-overlay hide">
+      <h1 class="message">game paused</h1>
+    </div>
+    <div class="pop-overlay"></div>
+    <div
+      class="popup d-flex flex-column justify-content-center align-items-center gap-3 rotate-phone"
+    >
+      <div class="message">flip the device to play</div>
+      <div class="phone"></div>
+    </div>
+    <div class="loader-container">
+      <div class="loader">
+       
+      </div>
+      
+    </div>
+
+
+    
+
+    <div class="game flex-column justify-content-between main-container " >
+      <div class="start-screen-container">
+        <a class="girl-container" sound="media/audios/1.mp3" onclick="soundPlay(this)">
+          <div class="girl"></div>
+        </a>
+        <a class="boy-container" sound="media/audios/1.mp3" onclick="soundPlay(this)">
+          <div class="boy"></div>
+        </a>
+      </div>
+
+      <div class="play-or-learn-screen">
+        <div
+          class="title slideInDown"
+          sound="media/audios/1.mp3" onclick="soundPlay(this)"
+        ></div>
+        <a class="learn slideInRight"  sound="media/audios/2.mp3" onclick="soundPlay(this)"></a>
+        <a class="play slideInLeft"  sound="media/audios/3.mp3" onclick="soundPlay(this)"></a>
+        <div class="boy"></div>
+        <div class="girl zoomIn"></div>
+      </div>
+
+      <div class="the-five-salah-screen">
+        <div
+          class="title animated slideInDown"
+          sound="media/audios/4.mp3" onclick="soundPlay(this)"
+        ></div>
+        <a class="salah1 animated zoomIn" style="animation-delay: 0.1s;"  sound="media/audios/5.mp3" onclick="soundPlay(this)"></a>
+        <a class="salah2 animated zoomIn" style="animation-delay: 0.2s;"  sound="media/audios/6.mp3" onclick="soundPlay(this)"></a>
+        <a class="salah3 animated zoomIn" style="animation-delay: 0.4s;"  sound="media/audios/7.mp3" onclick="soundPlay(this)"></a>
+        <a class="salah4 animated zoomIn" style="animation-delay: 0.6s;"  sound="media/audios/8.mp3" onclick="soundPlay(this)"></a>
+        <a class="salah5 animated zoomIn" style="animation-delay: 0.8s;"  sound="media/audios/9.mp3" onclick="soundPlay(this)"></a>
+        <div class="shape1 animated rollIn" ></div>
+        <div class="shape2 animated rollIn"></div>
+        <div class="shape3 animated rollIn" ></div>
+        <div class="shape4 animated rollIn" ></div>
+        <div class="shape5 animated rollIn" ></div>
+        <div class="home" sound="media/audios/102.mp3" onclick="soundPlay(this)"></div>
+      </div>
+      <div class="all-salah-container">
+        <div class="salahss"></div>
+        <div class="pray" sound="media/audios/102.mp3" onclick="soundPlay(this)"></div>
+        <div class="athkar" sound="media/audios/102.mp3" onclick="soundPlay(this)"></div>
+        <div class="home" sound="media/audios/102.mp3" onclick="soundPlay(this)"></div>
+        <div class="salah1-container page" page-attr="salahA">
+          <div
+            class="swiper-container swiper-container-initialized swiper-container-horizontal swiper-container-rtl"
+            id="salah1-container"
+            dir="rtl"
+          >
+            <div class="swiper-wrapper">
+              <div class="swiper-slide swiper-slide-active">
+                <div
+                class="text-1"
+                sound="media/audios/15.mp3" onclick="soundPlay(this)"
+                ></div>
+                <div
+                class="text-2"
+                sound="media/audios/16.mp3" onclick="soundPlay(this)"
+                ></div>
+                <div
+                  class="text-3"
+                  sound="media/audios/17.mp3" onclick="soundPlay(this)"
+                ></div>
+                <div
+                  class="text-4"
+                  sound="media/audios/18.mp3" onclick="soundPlay(this)"
+                ></div>
+                <div
+                  class="text-5"
+                  sound="media/audios/19.mp3" onclick="soundPlay(this)"
+                ></div>
+                <div
+                  class="text-6"
+                  sound="media/audios/20.mp3" onclick="soundPlay(this)"
+                ></div>
+                <div
+                  class="text-7"
+                  sound="media/audios/21.mp3" onclick="soundPlay(this)"
+                ></div>
+                <div class="salah-time"></div>
+                <div class="boy"></div>
+                <div class="girl"></div>
+              </div>
+              <div class="swiper-slide swiper-slide-next">
+                <div
+                class="text-1"
+                
+                sound="media/audios/15.mp3" onclick="soundPlay(this)"
+                ></div>
+              <div
+                class="text-2"
+                sound="media/audios/16.mp3" onclick="soundPlay(this)"
+              ></div>
+              <div
+                class="text-3"
+                sound="media/audios/17.mp3" onclick="soundPlay(this)"
+              ></div>
+              <div
+                class="text-4"
+                sound="media/audios/18.mp3" onclick="soundPlay(this)"
+              ></div>
+              <div
+                class="text-5"
+                sound="media/audios/19.mp3" onclick="soundPlay(this)"
+              ></div>
+              <div
+                class="text-6"
+                sound="media/audios/20.mp3" onclick="soundPlay(this)"
+              ></div>
+              <div
+                class="text-7"
+                sound="media/audios/21.mp3" onclick="soundPlay(this)"
+              ></div>
+                <div class="conditions-of-prayer">
+                  <div
+                    class="conditions-title"
+                    sound="media/audios/22.mp3" onclick="soundPlay(this)"
+                  ></div>
+                  <div
+                    class="conditions-1"
+                    sound="media/audios/23.mp3" onclick="soundPlay(this)"
+                  ></div>
+                  <div
+                    class="conditions-2"
+                    sound="media/audios/24.mp3" onclick="soundPlay(this)"
+                  ></div>
+                  <div
+                    class="conditions-3"
+                    sound="media/audios/25.mp3" onclick="soundPlay(this)"
+                  ></div>
+                  <div
+                    class="conditions-4"
+                    sound="media/audios/26.mp3" onclick="soundPlay(this)"
+                  ></div>
+                  <div
+                    class="conditions-5"
+                    sound="media/audios/27.mp3" onclick="soundPlay(this)"
+                  ></div>
+                  <div
+                    class="conditions-6"
+                    sound="media/audios/28.mp3" onclick="soundPlay(this)"
+                  ></div>
+                  <div
+                    class="conditions-7"
+                    sound="media/audios/29.mp3" onclick="soundPlay(this)"
+                  ></div>
+                  <div
+                    class="conditions-8"
+                    sound="media/audios/30.mp3" onclick="soundPlay(this)"
+                  ></div>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets"
+              id="salah1-containerP"
+            >
+              <span
+                class="swiper-pagination-bullet swiper-pagination-bullet-active"
+                tabindex="0"
+                role="button"
+                aria-label="Go to slide 1"
+                >1</span
+              ><span
+                class="swiper-pagination-bullet"
+                tabindex="0"
+                role="button"
+                aria-label="Go to slide 2"
+                >2</span
+              >
+            </div>
+            <span
+              class="swiper-notification"
+              aria-live="assertive"
+              aria-atomic="true"
+            ></span>
+          </div>
+        </div>
+        <div class="salah2-container page" page-attr="salahB">
+          <div class="swiper-container" id="salah2-container" dir="rtl">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <div
+                  class="text-1"
+                  
+                sound="media/audios/15.mp3" onclick="soundPlay(this)"
+                ></div>
+                <div
+                  class="text-2"
+                 
+                sound="media/audios/31.mp3" onclick="soundPlay(this)"
+                ></div>
+                <div
+                  class="text-3"
+                 
+                sound="media/audios/32.mp3" onclick="soundPlay(this)"
+                ></div>
+                <div
+                  class="text-4"
+                 
+                sound="media/audios/18.mp3" onclick="soundPlay(this)"
+                ></div>
+                <div
+                  class="text-5"
+                 
+                sound="media/audios/33.mp3" onclick="soundPlay(this)"
+                ></div>
+                <div
+                  class="text-6"
+                 
+                sound="media/audios/34.mp3" onclick="soundPlay(this)"
+                ></div>
+                <div
+                  class="text-7"
+                  sound="media/audios/35.mp3" onclick="soundPlay(this)"
+                ></div>
+                <div
+                  class="text-8"
+                  sound="media/audios/36.mp3" onclick="soundPlay(this)"
+                ></div>
+                <div class="salah-time"></div>
+                <div class="boy"></div>
+                <div class="girl"></div>
+              </div>
+              <div class="swiper-slide">
+                <div
+                  class="text-1"
+                  sound="media/audios/15.mp3" onclick="soundPlay(this)"
+                ></div>
+                <div
+                  class="text-2"
+                  sound="media/audios/31.mp3" onclick="soundPlay(this)"
+                ></div>
+                <div
+                  class="text-3"
+                  sound="media/audios/32.mp3" onclick="soundPlay(this)"
+                ></div>
+                <div
+                  class="text-4"
+                  sound="media/audios/18.mp3" onclick="soundPlay(this)"
+                ></div>
+                <div
+                  class="text-5"
+                  sound="media/audios/33.mp3" onclick="soundPlay(this)"
+                ></div>
+                <div
+                  class="text-6"
+                  sound="media/audios/34.mp3" onclick="soundPlay(this)"
+                ></div>
+                <div
+                  class="text-7"
+                  sound="media/audios/35.mp3" onclick="soundPlay(this)"
+                ></div>
+                <div
+                  class="text-8"
+                  sound="media/audios/36.mp3" onclick="soundPlay(this)"
+                ></div>
+                <div class="conditions-of-prayer">
+                  <div
+                    class="conditions-title"
+                    sound="media/audios/22.mp3" onclick="soundPlay(this)"
+                  ></div>
+                  <div
+                    class="conditions-1"
+                    sound="media/audios/23.mp3" onclick="soundPlay(this)"
+                  ></div>
+                  <div
+                    class="conditions-2"
+                    sound="media/audios/24.mp3" onclick="soundPlay(this)"
+                  ></div>
+                  <div
+                    class="conditions-3"
+                    sound="media/audios/25.mp3" onclick="soundPlay(this)"
+                  ></div>
+                  <div
+                    class="conditions-4"
+                    sound="media/audios/26.mp3" onclick="soundPlay(this)"
+                  ></div>
+                  <div
+                    class="conditions-5"
+                    sound="media/audios/27.mp3" onclick="soundPlay(this)"
+                  ></div>
+                  <div
+                    class="conditions-6"
+                    sound="media/audios/28.mp3" onclick="soundPlay(this)"
+                  ></div>
+                  <div
+                    class="conditions-7"
+                    sound="media/audios/29.mp3" onclick="soundPlay(this)"
+                  ></div>
+                  <div
+                    class="conditions-8"
+                    sound="media/audios/30.mp3" onclick="soundPlay(this)"
+                  ></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-pagination" id="salah2-containerP"></div>
+          </div>
+        </div>
+        <div class="salah3-container page" page-attr="salahC">
+          <div class="swiper-container" id="salah3-container" dir="rtl">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <div
+                  class="text-1"
+                  sound="media/audios/15.mp3" onclick="soundPlay(this)"
+                ></div>
+                <div
+                  class="text-2"
+                  sound="media/audios/37.mp3" onclick="soundPlay(this)"
+                ></div>
+                <div
+                  class="text-3"
+                  sound="media/audios/39.mp3" onclick="soundPlay(this)"
+                ></div>
+                <div
+                  class="text-4"
+                  sound="media/audios/18.mp3" onclick="soundPlay(this)"
+                ></div>
+                <div
+                  class="text-5"
+                  sound="media/audios/38.mp3" onclick="soundPlay(this)"
+                ></div>
+                <div
+                  class="text-6"
+                  sound="media/audios/34.mp3" onclick="soundPlay(this)"
+                ></div>
+                <div
+                  class="text-7"
+                  sound="media/audios/36.mp3" onclick="soundPlay(this)"
+                ></div>
+                <div class="salah-time"></div>
+                <div class="boy"></div>
+                <div class="girl"></div>
+              </div>
+              <div class="swiper-slide">
+                <div
+                  class="text-1"
+                  sound="media/audios/15.mp3" onclick="soundPlay(this)"
+                ></div>
+                <div
+                  class="text-2"
+                  sound="media/audios/37.mp3" onclick="soundPlay(this)"
+                ></div>
+                <div
+                  class="text-3"
+                  sound="media/audios/39.mp3" onclick="soundPlay(this)"
+                ></div>
+                <div
+                  class="text-4"
+                  sound="media/audios/18.mp3" onclick="soundPlay(this)"
+                ></div>
+                <div
+                  class="text-5"
+                  sound="media/audios/38.mp3" onclick="soundPlay(this)"
+                ></div>
+                <div
+                  class="text-6"
+                  sound="media/audios/34.mp3" onclick="soundPlay(this)"
+                ></div>
+                <div
+                  class="text-7"
+                  sound="media/audios/36.mp3" onclick="soundPlay(this)"
+                ></div>
+                <div class="conditions-of-prayer">
+                  <div
+                    class="conditions-title"
+                    sound="media/audios/22.mp3" onclick="soundPlay(this)"
+                  ></div>
+                  <div
+                    class="conditions-1"
+                    sound="media/audios/23.mp3" onclick="soundPlay(this)"
+                  ></div>
+                  <div
+                    class="conditions-2"
+                    sound="media/audios/24.mp3" onclick="soundPlay(this)"
+                  ></div>
+                  <div
+                    class="conditions-3"
+                    sound="media/audios/25.mp3" onclick="soundPlay(this)"
+                  ></div>
+                  <div
+                    class="conditions-4"
+                    sound="media/audios/26.mp3" onclick="soundPlay(this)"
+                  ></div>
+                  <div
+                    class="conditions-5"
+                    sound="media/audios/27.mp3" onclick="soundPlay(this)"
+                  ></div>
+                  <div
+                    class="conditions-6"
+                    sound="media/audios/28.mp3" onclick="soundPlay(this)"
+                  ></div>
+                  <div
+                    class="conditions-7"
+                    sound="media/audios/29.mp3" onclick="soundPlay(this)"
+                  ></div>
+                  <div
+                    class="conditions-8"
+                    sound="media/audios/30.mp3" onclick="soundPlay(this)"
+                  ></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-pagination" id="salah3-containerP"></div>
+          </div>
+        </div>
+        <div class="salah4-container page" page-attr="salahD">
+          <div class="swiper-container" id="salah4-container" dir="rtl">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <div
+                  class="text-1"
+                  sound="media/audios/15.mp3" onclick="soundPlay(this)"
+                ></div>
+                <div
+                  class="text-2"
+                  sound="media/audios/40.mp3" onclick="soundPlay(this)"
+                ></div>
+                <div
+                  class="text-3"
+                  sound="media/audios/41.mp3" onclick="soundPlay(this)"
+                ></div>
+                <div
+                  class="text-4"
+                  sound="media/audios/18.mp3" onclick="soundPlay(this)"
+                ></div>
+                <div
+                  class="text-5"
+                  sound="media/audios/42.mp3" onclick="soundPlay(this)"
+                ></div>
+                <div
+                  class="text-6"
+                  sound="media/audios/35.mp3" onclick="soundPlay(this)"
+                  
+                ></div>
+                <div
+                  class="text-7"
+                  sound="media/audios/21.mp3" onclick="soundPlay(this)"
+                ></div>
+                <div class="salah-time"></div>
+                <div class="boy"></div>
+                <div class="girl"></div>
+              </div>
+              <div class="swiper-slide">
+                <div
+                class="text-1"
+                sound="media/audios/15.mp3" onclick="soundPlay(this)"
+              ></div>
+              <div
+                class="text-2"
+                sound="media/audios/40.mp3" onclick="soundPlay(this)"
+              ></div>
+              <div
+                class="text-3"
+                sound="media/audios/41.mp3" onclick="soundPlay(this)"
+              ></div>
+              <div
+                class="text-4"
+                sound="media/audios/18.mp3" onclick="soundPlay(this)"
+              ></div>
+              <div
+                class="text-5"
+                sound="media/audios/42.mp3" onclick="soundPlay(this)"
+              ></div>
+              <div
+                class="text-6"
+                sound="media/audios/35.mp3" onclick="soundPlay(this)"
+                
+              ></div>
+              <div
+                class="text-7"
+                sound="media/audios/21.mp3" onclick="soundPlay(this)"
+              ></div>
+                <div class="conditions-of-prayer">
+                  <div
+                    class="conditions-title"
+                    sound="media/audios/22.mp3" onclick="soundPlay(this)"
+                  ></div>
+                  <div
+                    class="conditions-1"
+                    sound="media/audios/23.mp3" onclick="soundPlay(this)"
+                  ></div>
+                  <div
+                    class="conditions-2"
+                    sound="media/audios/24.mp3" onclick="soundPlay(this)"
+                  ></div>
+                  <div
+                    class="conditions-3"
+                    sound="media/audios/25.mp3" onclick="soundPlay(this)"
+                  ></div>
+                  <div
+                    class="conditions-4"
+                    sound="media/audios/26.mp3" onclick="soundPlay(this)"
+                  ></div>
+                  <div
+                    class="conditions-5"
+                    sound="media/audios/27.mp3" onclick="soundPlay(this)"
+                  ></div>
+                  <div
+                    class="conditions-6"
+                    sound="media/audios/28.mp3" onclick="soundPlay(this)"
+                  ></div>
+                  <div
+                    class="conditions-7"
+                    sound="media/audios/29.mp3" onclick="soundPlay(this)"
+                  ></div>
+                  <div
+                    class="conditions-8"
+                    sound="media/audios/30.mp3" onclick="soundPlay(this)"
+                  ></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-pagination" id="salah4-containerP"></div>
+          </div>
+        </div>
+        <div class="salah5-container page" page-attr="salahE">
+          <div class="swiper-container" id="salah5-container" dir="rtl">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <div
+                  class="text-1"
+                  sound="media/audios/15.mp3" onclick="soundPlay(this)"
+
+                ></div>
+                <div
+                  class="text-2"
+                  sound="media/audios/43.mp3" onclick="soundPlay(this)"
+
+                ></div>
+                <div
+                  class="text-3"
+                  sound="media/audios/44.mp3" onclick="soundPlay(this)"
+
+                ></div>
+                <div
+                  class="text-4"
+                  sound="media/audios/18.mp3" onclick="soundPlay(this)"
+
+                ></div>
+                <div
+                  class="text-5"
+                  sound="media/audios/34.mp3" onclick="soundPlay(this)"
+
+                ></div>
+                <div
+                  class="text-6"
+                  sound="media/audios/35.mp3" onclick="soundPlay(this)"
+
+                ></div>
+                <div
+                  class="text-7"
+                  sound="media/audios/45.mp3" onclick="soundPlay(this)"
+
+                ></div>
+                <div
+                  class="text-8"
+                  sound="media/audios/21.mp3" onclick="soundPlay(this)"
+
+                ></div>
+                <div class="salah-time"></div>
+                <div class="boy"></div>
+                <div class="girl"></div>
+              </div>
+              <div class="swiper-slide">
+                <div
+                  class="text-1"
+                  sound="media/audios/15.mp3" onclick="soundPlay(this)"
+
+                ></div>
+                <div
+                  class="text-2"
+                  sound="media/audios/43.mp3" onclick="soundPlay(this)"
+
+                ></div>
+                <div
+                  class="text-3"
+                  sound="media/audios/44.mp3" onclick="soundPlay(this)"
+
+                ></div>
+                <div
+                  class="text-4"
+                  sound="media/audios/18.mp3" onclick="soundPlay(this)"
+
+                ></div>
+                <div
+                  class="text-5"
+                  sound="media/audios/34.mp3" onclick="soundPlay(this)"
+
+                ></div>
+                <div
+                  class="text-6"
+                  sound="media/audios/35.mp3" onclick="soundPlay(this)"
+
+                ></div>
+                <div
+                  class="text-7"
+                  sound="media/audios/45.mp3" onclick="soundPlay(this)"
+
+                ></div>
+                <div
+                  class="text-8"
+                  sound="media/audios/21.mp3" onclick="soundPlay(this)"
+
+                ></div>
+                <div class="conditions-of-prayer">
+                  <div
+                    class="conditions-title"
+                    sound="media/audios/22.mp3" onclick="soundPlay(this)"
+                  ></div>
+                  <div
+                    class="conditions-1"
+                    sound="media/audios/23.mp3" onclick="soundPlay(this)"
+                  ></div>
+                  <div
+                    class="conditions-2"
+                    sound="media/audios/24.mp3" onclick="soundPlay(this)"
+                  ></div>
+                  <div
+                    class="conditions-3"
+                    sound="media/audios/25.mp3" onclick="soundPlay(this)"
+                  ></div>
+                  <div
+                    class="conditions-4"
+                    sound="media/audios/26.mp3" onclick="soundPlay(this)"
+                  ></div>
+                  <div
+                    class="conditions-5"
+                    sound="media/audios/27.mp3" onclick="soundPlay(this)"
+                  ></div>
+                  <div
+                    class="conditions-6"
+                    sound="media/audios/28.mp3" onclick="soundPlay(this)"
+                  ></div>
+                  <div
+                    class="conditions-7"
+                    sound="media/audios/29.mp3" onclick="soundPlay(this)"
+                  ></div>
+                  <div
+                    class="conditions-8"
+                    sound="media/audios/30.mp3" onclick="soundPlay(this)"
+                  ></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-pagination" id="salah5-containerP"></div>
+          </div>
+        </div>
+      </div>
+      <div class="athkar-alsalah-screen" >
+        <div class="title"></div>
+        <div class="right-content">
+          <div class="athkar-sound1 athkarattr" soundattr="media/audios/48.mp3"></div>
+          <div class="athkar-sound2 athkarattr" soundattr="media/audios/49.mp3"></div>
+          <div class="athkar-sound3 athkarattr" soundattr="media/audios/51.mp3"></div>
+          <div class="athkar-sound4 athkarattr" soundattr="media/audios/52.mp3"></div>
+          <div class="athkar-sound5 athkarattr" soundattr="media/audios/53.mp3"></div>
+          <div class="athkar-sound6 athkarattr" soundattr="media/audios/54.mp3"></div>
+        </div>
+        <div class="left-content">
+          <div class="boy"></div>
+          <div class="girl"></div>
+        </div>
+        <div class="pray" sound="media/audios/102.mp3" onclick="soundPlay(this)"></div>
+        <div class="home" sound="media/audios/102.mp3" onclick="soundPlay(this)"></div>
+      </div>
+      <div class="how-to-pray-screen">
+        <div class="salahA slah" >
+        <div class="pray" sound="media/audios/102.mp3" onclick="soundPlay(this)"></div>
+        <div class="home" sound="media/audios/102.mp3" onclick="soundPlay(this)"></div>
+        <div class="swiper-container swiper-container-initialized swiper-container-horizontal swiper-container-rtl" dir="rtl">
+        <div class="swiper-wrapper" style="transition-duration: 0ms; transform: translate3d(0px, 0px, 0px);">
+        <div class="swiper-slide how-to-pray-slider1 swiper-slide-active" >
+        <div class="athkarattr-1 slide1"  sound="media/audios/56.mp3" onclick="soundPlay(this)" ></div>
+        <div class="athkarattr slide1"  sound="media/audios/57.mp3" onclick="soundPlay(this)"></div>
+        <div class="athkarattr-2 slide1"  sound="media/audios/58.mp3" onclick="soundPlay(this)"></div>
+        <div class="boyslaha-container" >
+        <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+        <video class="boy-salah" autoplay="">
+        <source src="" type="video/mp4">
+        </video>
+        </div>
+        <div class="girlslaha-container" style="display: none;">
+        <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4"></div>
+        <video class="girl-salah" autoplay="">
+        <source src="" type="video/mp4">
+        </video>
+        </div>
+        </div>
+        <div class="swiper-slide how-to-pray-slider2 swiper-slide-next" >
+        <div class="athkarattr-1" sound="media/audios/59.mp3" onclick="soundPlay(this)"></div>
+        <div class="athkarattr-2" sound="media/audios//60.mp3" onclick="soundPlay(this)"></div>
+        <div class="boyslaha-container" >
+        <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4"></div>
+        <video class="boy-salah" autoplay="">
+        <source src="" type="video/mp4">
+        </video>
+        </div>
+        <div class="girlslaha-container" style="display: none;">
+        <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+        <video class="girl-salah" autoplay="">
+        <source src="" type="video/mp4">
+        </video>
+        </div>
+        </div>
+        <div class="swiper-slide how-to-pray-slider3" >
+        <div class="athkarattr-1" sound="media/audios/61.mp3" onclick="soundPlay(this)"></div>
+        <div class="athkarattr-2" sound="media/audios/62.mp3" onclick="soundPlay(this)"></div>
+        <div class="boyslaha-container" >
+        <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+        <video class="boy-salah" autoplay="">
+        <source src="" type="video/mp4">
+        </video>
+        </div>
+        <div class="girlslaha-container" style="display: none;">
+        <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4">
+        </div>
+        <video class="girl-salah" autoplay="">
+        <source src="" type="video/mp4">
+        </video>
+        </div>
+        </div>
+        <div class="swiper-slide how-to-pray-slider4" >
+        <div class="athkarattr-1" sound="media/audios/63.mp3" onclick="soundPlay(this)"></div>
+        <div class="boyslaha-container" >
+        <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+        <video class="boy-salah" autoplay="">
+        <source src="" type="video/mp4">
+        </video>
+        </div>
+        <div class="girlslaha-container" style="display: none;">
+        <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4"></div>
+        <video class="girl-salah" autoplay="">
+        <source src="" type="video/mp4">
+        </video>
+        </div>
+        </div>
+        <div class="swiper-slide how-to-pray-slider5" >
+        <div class="athkarattr-1" sound="media/audios/64.mp3" onclick="soundPlay(this)"></div>
+        <div class="athkarattr-2" sound="media/audios/60.mp3" onclick="soundPlay(this)"></div>
+        <div class="athkarattr-3" sound="media/audios/65.mp3" onclick="soundPlay(this)"></div>
+        <div class="athkarattr-4" sound="media/audios/67.mp3" onclick="soundPlay(this)"></div>
+        <div class="boyslaha-container" >
+        <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4"></div>
+        <video class="boy-salah" autoplay="">
+        <source src="" type="video/mp4">
+        </video>
+        </div>
+        <div class="girlslaha-container" style="display: none;">
+        <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4"></div>
+        <video class="girl-salah" autoplay="">
+        <source src="" type="video/mp4">
+        </video>
+        </div>
+        </div>
+        <div class="swiper-slide how-to-pray-slider6" >
+        <div class="athkarattr-1" sound="media/audios/68.mp3" onclick="soundPlay(this)"></div>
+        <div class="athkarattr-2" sound="media/audios/69.mp3" onclick="soundPlay(this)"></div>
+        <div class="boyslaha-container" >
+        <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4"></div>
+        <video class="boy-salah" autoplay="">
+        <source src="" type="video/mp4">
+        </video>
+        </div>
+        <div class="girlslaha-container" style="display: none;">
+        <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4"></div>
+        <video class="girl-salah" autoplay="">
+        <source src="" type="video/mp4">
+        </video>
+        </div>
+        </div>
+        <div class="swiper-slide how-to-pray-slider7" >
+        <div class="athkarattr-1" sound="media/audios/70.mp3" onclick="soundPlay(this)"></div>
+        <div class="athkarattr-2" sound="media/audios/71.mp3" onclick="soundPlay(this)"></div>
+        <div class="athkarattr-3" sound="media/audios/72.mp3" onclick="soundPlay(this)"></div>
+        <div class="athkarattr-4" sound="media/audios/74.mp3" onclick="soundPlay(this)"></div>
+        <div class="boyslaha-container" >
+        <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+        <video class="boy-salah" autoplay="">
+        <source src="" type="video/mp4">
+        </video>
+        </div>
+        <div class="girlslaha-container" style="display: none;">
+        <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4"></div>
+        <video class="girl-salah" autoplay="">
+        <source src="" type="video/mp4">
+        </video>
+        </div>
+        </div>
+        <div class="swiper-slide how-to-pray-slider8" >
+        <div class="athkarattr-1" sound="media/audios/75.mp3" onclick="soundPlay(this)"></div>
+        <div class="athkarattr-2" sound="media/audios/71.mp3" onclick="soundPlay(this)"></div>
+        <div class="athkarattr-3" sound="media/audios/76.mp3" onclick="soundPlay(this)"></div>
+        <div class="boyslaha-container" >
+        <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" >
+        </div>
+        <video class="boy-salah" autoplay="">
+        <source src="" type="video/mp4">
+        </video>
+        </div>
+        <div class="girlslaha-container" style="display: none;">
+        <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4"></div>
+        <video class="girl-salah" autoplay="">
+        <source src="" type="video/mp4">
+        </video>
+        </div>
+        </div>
+        <div class="swiper-slide how-to-pray-slider9" >
+        <div class="athkarattr-1" sound="media/audios/77.mp3" onclick="soundPlay(this)"></div>
+        <div class="athkarattr-2" sound="media/audios/71.mp3" onclick="soundPlay(this)"></div>
+        <div class="athkarattr-3" sound="media/audios/72.mp3" onclick="soundPlay(this)"></div>
+        <div class="athkarattr-4" sound="media/audios/74.mp3" onclick="soundPlay(this)"></div>
+        <div class="boyslaha-container" >
+        <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" >
+        </div>
+        <video class="boy-salah" autoplay="">
+        <source src="" type="video/mp4">
+        </video>
+        </div>
+        <div class="girlslaha-container" style="display: none;">
+        <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4">
+        </div>
+        <video class="girl-salah" autoplay="">
+        <source src="" type="video/mp4">
+        </video>
+        </div>
+        </div>
+        <div class="swiper-slide how-to-pray-slider10" >
+        <div class="athkarattr-1" sound="media/audios/78.mp3" onclick="soundPlay(this)"></div>
+        <div class="athkarattr-2" sound="media/audios/71.mp3" onclick="soundPlay(this)"></div>
+        <div class="boyslaha-container" >
+        <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+        <video class="boy-salah" autoplay="">
+        <source src="" type="video/mp4">
+        </video>
+        </div>
+        <div class="girlslaha-container" style="display: none;">
+        <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4"></div>
+        <video class="girl-salah" autoplay="">
+        <source src="" type="video/mp4">
+        </video>
+        </div>
+        </div>
+        <div class="swiper-slide how-to-pray-slider11" >
+        <div class="athkarattr-1" sound="media/audios/63.mp3" onclick="soundPlay(this)"></div>
+        <div class="boyslaha-container" >
+        <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+        <video class="boy-salah" autoplay="">
+        <source src="" type="video/mp4">
+        </video>
+        </div>
+        <div class="girlslaha-container" style="display: none;">
+        <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4"></div>
+        <video class="girl-salah" autoplay="">
+        <source src="" type="video/mp4">
+        </video>
+        </div>
+        </div>
+        <div class="swiper-slide how-to-pray-slider12" >
+        <div class="athkarattr-1" sound="media/audios/64.mp3" onclick="soundPlay(this)"></div>
+        <div class="athkarattr-2" sound="media/audios/60.mp3" onclick="soundPlay(this)"></div>
+        <div class="athkarattr-3" sound="media/audios/79.mp3" onclick="soundPlay(this)"></div>
+        <div class="athkarattr-4" sound="media/audios/67.mp3" onclick="soundPlay(this)"></div>
+        <div class="boyslaha-container" >
+        <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+        <video class="boy-salah" autoplay="">
+        <source src="" type="video/mp4">
+        </video>
+        </div>
+        <div class="girlslaha-container" style="display: none;">
+        <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4 "></div>
+        <video class="girl-salah" autoplay="">
+        <source src="" type="video/mp4">
+        </video>
+        </div>
+        </div>
+        <div class="swiper-slide how-to-pray-slider13" >
+        <div class="athkarattr-1" sound="media/audios/68.mp3" onclick="soundPlay(this)"></div>
+        <div class="athkarattr-2" sound="media/audios/69.mp3" onclick="soundPlay(this)"></div>
+        <div class="boyslaha-container" >
+        <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+        <video class="boy-salah" autoplay="">
+        <source src="" type="video/mp4">
+        </video>
+        </div>
+        <div class="girlslaha-container" style="display: none;">
+        <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4"></div>
+        <video class="girl-salah" autoplay="">
+        <source src="" type="video/mp4">
+        </video>
+        </div>
+        </div>
+        <div class="swiper-slide how-to-pray-slider14" >
+        <div class="athkarattr-1" sound="media/audios/80.mp3" onclick="soundPlay(this)"></div>
+        <div class="athkarattr-2" sound="media/audios/71.mp3" onclick="soundPlay(this)"></div>
+        <div class="athkarattr-3" sound="media/audios/72.mp3" onclick="soundPlay(this)"></div>
+        <div class="athkarattr-4" sound="media/audios/74.mp3" onclick="soundPlay(this)"></div>
+        <div class="boyslaha-container" >
+        <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+        <video class="boy-salah" autoplay="">
+        <source src="" type="video/mp4">
+        </video>
+        </div>
+        <div class="girlslaha-container" style="display: none;">
+        <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4"></div>
+        <video class="girl-salah" autoplay="">
+        <source src="" type="video/mp4">
+        </video>
+        </div>
+        </div>
+        <div class="swiper-slide how-to-pray-slider15" >
+        <div class="athkarattr-1" sound="media/audios/75.mp3" onclick="soundPlay(this)"></div>
+        <div class="athkarattr-2" sound="media/audios/71.mp3" onclick="soundPlay(this)"></div>
+        <div class="athkarattr-3" sound="media/audios/76.mp3" onclick="soundPlay(this)"></div>
+        <div class="boyslaha-container" >
+        <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+        <video class="boy-salah" autoplay="">
+        <source src="" type="video/mp4">
+        </video>
+        </div>
+        <div class="girlslaha-container" style="display: none;">
+        <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4"></div>
+        <video class="girl-salah" autoplay="">
+        <source src="" type="video/mp4">
+        </video>
+        </div>
+        </div>
+        <div class="swiper-slide how-to-pray-slider16" >
+        <div class="athkarattr-1" sound="media/audios/81.mp3" onclick="soundPlay(this)"></div>
+        <div class="athkarattr-2" sound="media/audios/71.mp3" onclick="soundPlay(this)"></div>
+        <div class="athkarattr-3" sound="media/audios/72.mp3" onclick="soundPlay(this)"></div>
+        <div class="athkarattr-4" sound="media/audios/74.mp3" onclick="soundPlay(this)"></div>
+        <div class="boyslaha-container" style="top: 59%;">
+        <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+        <video class="boy-salah" autoplay="">
+        <source src="" type="video/mp4">
+        </video>
+        </div>
+        <div class="girlslaha-container" style="top: 59%;">
+        <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4"></div>
+        <video class="girl-salah" autoplay="">
+        <source src="" type="video/mp4">
+        </video>
+        </div>
+        </div>
+        <div class="swiper-slide how-to-pray-slider17" >
+        <div class="athkarattr-1" sound="media/audios/83.mp3" onclick="soundPlay(this)"></div>
+        <div class="athkarattr-2" sound="media/audios/84.mp3" onclick="soundPlay(this)"></div>
+        <div class="boyslaha-container" >
+        <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+        <div class="image-salah-boy1" ></div>
+        <video class="boy-salah" autoplay="">
+        <source src="" type="video/mp4">
+        </video>
+        </div>
+        <div class="girlslaha-container" style="display: none;">
+        <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4"></div>
+        <div class="image-salah-girl1" ></div>
+        <video class="girl-salah" autoplay="">
+        <source src="" type="video/mp4">
+        </video>
+        </div>
+        </div>
+        <div class="swiper-slide how-to-pray-slider18" >
+        <div class="athkarattr-1" sound="media/audios/85.mp3" onclick="soundPlay(this)"></div>
+        <div class="athkarattr-2" sound="media/audios/86.mp3" onclick="soundPlay(this)"></div>
+        <div class="boyslaha-container" style="top: 50%;">
+        <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+        <div class="image-salah-boy1" ></div>
+        <video class="boy-salah" autoplay="">
+        <source src="" type="video/mp4">
+        </video>
+        </div>
+        <div class="girlslaha-container" style="top: 50%;">
+        <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4"></div>
+        <div class="image-salah-girl1" ></div>
+        <video class="girl-salah" autoplay="">
+        <source src="" type="video/mp4">
+        </video>
+        </div>
+        </div>
+        <div class="swiper-slide how-to-pray-slider19" >
+        <div class="athkarattr-1" sound="media/audios/87.mp3" onclick="soundPlay(this)"></div>
+        <div class="athkarattr-2" sound="media/audios/88.mp3" onclick="soundPlay(this)"></div>
+        <div class="athkarattr-3" sound="media/audios/89.mp3" onclick="soundPlay(this)"></div>
+        <div class="athkarattr-4" sound="media/audios/88.mp3" onclick="soundPlay(this)"></div>
+        <div class="boyslaha-container" style="top: 50%;">
+        <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+        <div class="image-salah-boy1" ></div>
+        <video class="boy-salah" autoplay="">
+        <source src="" type="video/mp4">
+        </video>
+        </div>
+        <div class="girlslaha-container" style="top: 50%;">
+        <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4"></div>
+        <div class="image-salah-girl1" ></div>
+        <video class="girl-salah" autoplay="">
+        <source src="" type="video/mp4">
+        </video>
+        </div>
+        </div>
+        </div>
+        <div class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets" id="how-to-pray-screenP"><span class="swiper-pagination-bullet swiper-pagination-bullet-active" tabindex="0" role="button" aria-label="Go to slide 1">1</span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 2">2</span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 3">3</span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 4">4</span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 5">5</span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 6">6</span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 7">7</span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 8">8</span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 9">9</span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide "></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide "></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide "></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide "></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide "></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide "></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide "></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide "></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide "></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide "></span></div>
+        <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+        </div>
+        <div class="salahB slah" >
+          <div class="salahss" sound="media/audios/102.mp3" onclick="soundPlay(this)"></div>
+          <div class="pray" sound="media/audios/102.mp3" onclick="soundPlay(this)"></div>
+          <div class="home" sound="media/audios/102.mp3" onclick="soundPlay(this)"></div>
+          <div class="swiper-container swiper-container-initialized swiper-container-horizontal swiper-container-rtl swiper-container-ios" dir="rtl">
+          <div class="swiper-wrapper" >
+          <div class="swiper-slide how-to-pray-slider1" >
+          <div class="athkarattr-1 slide1" sound="media/audios/56.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr slide1" sound="media/audios/57.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2 slide1" sound="media/audios/58.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container" >
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container" >
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider2" >
+          <div class="athkarattr-1 " sound="media/audios/59.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2 " sound="media/audios/60.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container" >
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container" style="display: none;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider3" >
+          <div class="athkarattr-1" sound="media/audios/61.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/62.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container" >
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4"></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container" style="display: none;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4"></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider4" >
+          <div class="athkarattr-1" sound="media/audios/63.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container" >
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container" style="display: none;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4"></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider5" >
+          <div class="athkarattr-1" sound="media/audios/64.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/60.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-3" sound="media/audios/65.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-4" sound="media/audios/67.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container"style="top: 50%;">
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4"></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container"style="top: 50%;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4"></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider6" >
+          <div class="athkarattr-1" sound="media/audios/68.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/69.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container" >
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container" style="display: none;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4"></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider7" >
+          <div class="athkarattr-1" sound="media/audios/70.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/71.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-3" sound="media/audios/72.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-4" sound="media/audios/74.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container" style="top: 59%; ">
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container" style="top: 59%;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider8" >
+          <div class="athkarattr-1" sound="media/audios/75.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/71.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-3" sound="media/audios/76.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container"style="top: 50%;">
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container"style="top: 50%;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider9" >
+          <div class="athkarattr-1" sound="media/audios/77.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/71.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-3" sound="media/audios/72.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-4" sound="media/audios/74.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container" style="top: 59%; ">
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container" style="top: 59%;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider10" >
+          <div class="athkarattr-1" sound="media/audios/78.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/71.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container" >
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container" style="display: none;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider11" >
+          <div class="athkarattr-1" sound="media/audios/63.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container" >
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container" style="display: none;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4"></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider12" >
+          <div class="athkarattr-1" sound="media/audios/64.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/60.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-3" sound="media/audios/79.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-4" sound="media/audios/67.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container"style="top: 50%;">
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container"style="top: 50%;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider13" >
+          <div class="athkarattr-1" sound="media/audios/68.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/69.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container" >
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container" style="display: none;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider14" >
+          <div class="athkarattr-1" sound="media/audios/80.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/71.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-3" sound="media/audios/72.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-4" sound="media/audios/74.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container" style="top: 59%; ">
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container" style="top: 59%;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider15" >
+          <div class="athkarattr-1" sound="media/audios/75.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/71.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-3" sound="media/audios/76.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container"style="top: 50%;">
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container"style="top: 50%;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider16" >
+          <div class="athkarattr-1" sound="media/audios/81.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/71.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-3" sound="media/audios/72.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-4" sound="media/audios/74.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container" style="top: 59%; ">
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container" style="top: 59%;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider17" >
+          <div class="athkarattr-1" sound="media/audios/83.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/84.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container"style="top: 50%;">
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container"style="top: 50%;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider18" >
+          <div class="athkarattr-1" sound="media/audios/78.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/71.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container" >
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container" style="display: none;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4"></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider19" >
+          <div class="athkarattr-1" sound="media/audios/63-1.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container">
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container" >
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider20" >
+          <div class="athkarattr-1" sound="media/audios/64.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/60.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-3" sound="media/audios/79.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-4" sound="media/audios/67.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container"style="top: 50%;">
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container"style="top: 50%;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider21" >
+          <div class="athkarattr-1" sound="media/audios/68.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/69.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container" >
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container" style="display: none;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider22" >
+          <div class="athkarattr-1" sound="media/audios/90.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/71.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-3" sound="media/audios/72.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-4" sound="media/audios/74.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container" style="top: 59%; ">
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container" style="top: 59%;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4"></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider23 " >
+          <div class="athkarattr-1" sound="media/audios/75.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/71.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-3" sound="media/audios/76.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container"style="top: 50%;">
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container"style="top: 50%;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider24" >
+          <div class="athkarattr-1" sound="media/audios/91.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/71.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-3" sound="media/audios/72.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-4" sound="media/audios/74.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container" style="top: 59%; ">
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4"></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container" style="top: 59%;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4"></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider25" >
+          <div class="athkarattr-1" sound="media/audios/78.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/71.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container" >
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4"></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container" style="display: none;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider26" >
+          <div class="athkarattr-1" sound="media/audios/63-1.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container" >
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container" style="display: none;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4"></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider27" >
+          <div class="athkarattr-1" sound="media/audios/64.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/60.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-3" sound="media/audios/79.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-4" sound="media/audios/67.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container"style="top: 50%;">
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container"style="top: 50%;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider28" >
+          <div class="athkarattr-1" sound="media/audios/68.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/69.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container" >
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container" style="display: none;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider29" >
+          <div class="athkarattr-1" sound="media/audios/93.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/71.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-3" sound="media/audios/72.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-4" sound="media/audios/74.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container" style="top: 59%; ">
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container" style="top: 59%;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider30" >
+          <div class="athkarattr-1" sound="media/audios/75.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/71.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-3" sound="media/audios/76.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container"style="top: 50%;">
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4"></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container"style="top: 50%;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider31" >
+          <div class="athkarattr-1" sound="media/audios/95.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/71.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-3" sound="media/audios/72.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-4" sound="media/audios/74.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container" style="top: 59%; ">
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container" style="top: 59%;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider32" >
+          <div class="athkarattr-1" sound="media/audios/83.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/84.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container"style="top: 50%;">
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4"></div>
+          <div class="image-salah-boy1"></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container" style="top: 50%;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <div class="image-salah-girl1" ></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider33" >
+          <div class="athkarattr-1" sound="media/audios/85.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/86.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container">
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4"></div>
+          <div class="image-salah-boy1" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container"style="top: 50%;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <div class="image-salah-girl1" ></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider34" >
+          <div class="athkarattr-1" sound="media/audios/87.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/88.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-3" sound="media/audios/89.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-4" sound="media/audios/88.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container"style="top: 50%;">
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <div class="image-salah-boy1"></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container"style="top: 50%;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4"></div>
+          <div class="image-salah-girl1" ></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          </div>
+        <div class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets" id="how-to-pray-screenP"><span class="swiper-pagination-bullet swiper-pagination-bullet-active" tabindex="0" role="button" aria-label="Go to slide 1">1</span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 2">2</span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 3">3</span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 4">4</span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 5">5</span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 6">6</span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 7">7</span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 8">8</span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 9">9</span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide "></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide "></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide "></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide "></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide "></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide "></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide "></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide "></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide "></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide "></span></div>
+          </div>
+         </div>
+         <div class="salahC slah" >
+          <div class="salahss" sound="media/audios/102.mp3" onclick="soundPlay(this)"></div>
+          <div class="pray" sound="media/audios/102.mp3" onclick="soundPlay(this)"></div>
+          <div class="home" sound="media/audios/102.mp3" onclick="soundPlay(this)"></div>
+          <div class="swiper-container swiper-container-initialized swiper-container-horizontal swiper-container-rtl swiper-container-ios" dir="rtl">
+          <div class="swiper-wrapper" >
+          <div class="swiper-slide how-to-pray-slider1" >
+          <div class="athkarattr-1 slide1" sound="media/audios/56.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr slide1" sound="media/audios/57.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2 slide1" sound="media/audios/58.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container" >
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container" >
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider2" >
+          <div class="athkarattr-1 " sound="media/audios/59.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2 " sound="media/audios/60.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container" >
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container" style="display: none;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider3" >
+          <div class="athkarattr-1" sound="media/audios/61.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/62.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container" >
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4"></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container" style="display: none;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4"></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider4" >
+          <div class="athkarattr-1" sound="media/audios/63.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container" >
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container" style="display: none;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4"></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider5" >
+          <div class="athkarattr-1" sound="media/audios/64.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/60.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-3" sound="media/audios/65.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-4" sound="media/audios/67.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container"style="top: 50%;">
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4"></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container"style="top: 50%;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4"></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider6" >
+          <div class="athkarattr-1" sound="media/audios/68.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/69.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container" >
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container" style="display: none;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4"></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider7" >
+          <div class="athkarattr-1" sound="media/audios/70.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/71.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-3" sound="media/audios/72.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-4" sound="media/audios/74.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container" style="top: 59%; ">
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container" style="top: 59%;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider8" >
+          <div class="athkarattr-1" sound="media/audios/75.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/71.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-3" sound="media/audios/76.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container"style="top: 50%;">
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container"style="top: 50%;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider9" >
+          <div class="athkarattr-1" sound="media/audios/77.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/71.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-3" sound="media/audios/72.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-4" sound="media/audios/74.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container" style="top: 59%; ">
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container" style="top: 59%;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider10" >
+          <div class="athkarattr-1" sound="media/audios/78.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/71.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container" >
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container" style="display: none;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider11" >
+          <div class="athkarattr-1" sound="media/audios/63.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container" >
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container" style="display: none;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4"></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider12" >
+          <div class="athkarattr-1" sound="media/audios/64.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/60.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-3" sound="media/audios/79.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-4" sound="media/audios/67.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container"style="top: 50%;">
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container"style="top: 50%;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider13" >
+          <div class="athkarattr-1" sound="media/audios/68.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/69.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container" >
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container" style="display: none;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider14" >
+          <div class="athkarattr-1" sound="media/audios/80.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/71.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-3" sound="media/audios/72.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-4" sound="media/audios/74.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container" style="top: 59%; ">
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container" style="top: 59%;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider15" >
+          <div class="athkarattr-1" sound="media/audios/75.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/71.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-3" sound="media/audios/76.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container"style="top: 50%;">
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container"style="top: 50%;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider16" >
+          <div class="athkarattr-1" sound="media/audios/81.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/71.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-3" sound="media/audios/72.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-4" sound="media/audios/74.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container" style="top: 59%; ">
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container" style="top: 59%;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider17" >
+          <div class="athkarattr-1" sound="media/audios/83.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/84.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container"style="top: 50%;">
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container"style="top: 50%;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider18" >
+          <div class="athkarattr-1" sound="media/audios/78.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/71.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container" >
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container" style="display: none;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4"></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider19" >
+          <div class="athkarattr-1" sound="media/audios/63-1.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container">
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container" >
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider20" >
+          <div class="athkarattr-1" sound="media/audios/64.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/60.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-3" sound="media/audios/79.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-4" sound="media/audios/67.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container"style="top: 50%;">
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container"style="top: 50%;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider21" >
+          <div class="athkarattr-1" sound="media/audios/68.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/69.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container" >
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container" style="display: none;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider22" >
+          <div class="athkarattr-1" sound="media/audios/90.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/71.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-3" sound="media/audios/72.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-4" sound="media/audios/74.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container" style="top: 59%; ">
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container" style="top: 59%;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4"></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider23 " >
+          <div class="athkarattr-1" sound="media/audios/75.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/71.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-3" sound="media/audios/76.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container"style="top: 50%;">
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container"style="top: 50%;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider24" >
+          <div class="athkarattr-1" sound="media/audios/91.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/71.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-3" sound="media/audios/72.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-4" sound="media/audios/74.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container" style="top: 59%; ">
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4"></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container" style="top: 59%;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4"></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider25" >
+          <div class="athkarattr-1" sound="media/audios/78.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/71.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container" >
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4"></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container" style="display: none;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider26" >
+          <div class="athkarattr-1" sound="media/audios/63-1.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container" >
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container" style="display: none;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4"></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider27" >
+          <div class="athkarattr-1" sound="media/audios/64.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/60.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-3" sound="media/audios/79.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-4" sound="media/audios/67.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container"style="top: 50%;">
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container"style="top: 50%;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider28" >
+          <div class="athkarattr-1" sound="media/audios/68.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/69.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container" >
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container" style="display: none;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider29" >
+          <div class="athkarattr-1" sound="media/audios/93.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/71.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-3" sound="media/audios/72.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-4" sound="media/audios/74.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container" style="top: 59%; ">
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container" style="top: 59%;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider30" >
+          <div class="athkarattr-1" sound="media/audios/75.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/71.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-3" sound="media/audios/76.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container"style="top: 50%;">
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4"></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container"style="top: 50%;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider31" >
+          <div class="athkarattr-1" sound="media/audios/95.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/71.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-3" sound="media/audios/72.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-4" sound="media/audios/74.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container" style="top: 59%; ">
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container" style="top: 59%;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider32" >
+          <div class="athkarattr-1" sound="media/audios/83.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/84.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container"style="top: 50%;">
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4"></div>
+          <div class="image-salah-boy1"></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container" style="top: 50%;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <div class="image-salah-girl1" ></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider33" >
+          <div class="athkarattr-1" sound="media/audios/85.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/86.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container">
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4"></div>
+          <div class="image-salah-boy1" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container"style="top: 50%;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <div class="image-salah-girl1" ></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider34" >
+          <div class="athkarattr-1" sound="media/audios/87.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/88.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-3" sound="media/audios/89.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-4" sound="media/audios/88.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container"style="top: 50%;">
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <div class="image-salah-boy1"></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container"style="top: 50%;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4"></div>
+          <div class="image-salah-girl1" ></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          </div>
+        <div class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets" id="how-to-pray-screenP"><span class="swiper-pagination-bullet swiper-pagination-bullet-active" tabindex="0" role="button" aria-label="Go to slide 1">1</span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 2">2</span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 3">3</span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 4">4</span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 5">5</span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 6">6</span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 7">7</span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 8">8</span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 9">9</span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide "></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide "></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide "></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide "></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide "></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide "></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide "></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide "></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide "></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide "></span></div>
+          </div>
+         </div>
+        <div class="salahD slah" >
+          <div class="salahss" sound="media/audios/102.mp3" onclick="soundPlay(this)"></div>
+          <div class="pray" sound="media/audios/102.mp3" onclick="soundPlay(this)"></div>
+          <div class="home" sound="media/audios/102.mp3" onclick="soundPlay(this)"></div>
+          <div class="swiper-container swiper-container-initialized swiper-container-horizontal swiper-container-rtl" dir="rtl">
+          <div class="swiper-wrapper">
+          <div class="swiper-slide how-to-pray-slider1 swiper-slide-active" >
+          <div class="athkarattr-1 slide1" sound="media/audios/56.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr slide1" sound="media/audios/57.mp3"  onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2 slide1" sound="media/audios/58.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container" >
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4"></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider2 swiper-slide-next" >
+          <div class="athkarattr-1" sound="media/audios/59.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/60.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container" >
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4"></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container" >
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider3" >
+          <div class="athkarattr-1" sound="media/audios/61.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/62.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container" >
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4">
+          </div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider4" >
+          <div class="athkarattr-1" sound="media/audios/63.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container" >
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container" style="display: none;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4"></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider5" >
+          <div class="athkarattr-1" sound="media/audios/64.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/60.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-3" sound="media/audios/65.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-4" sound="media/audios/67.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container" >
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4"></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container" style="display: none;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4"></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider6" >
+          <div class="athkarattr-1" sound="media/audios/68.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/69.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container" >
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4"></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container" >
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4"></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider7" >
+          <div class="athkarattr-1" sound="media/audios/70.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/71.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-3" sound="media/audios/72.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-4" sound="media/audios/74.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container" >
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4"></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider8" >
+          <div class="athkarattr-1" sound="media/audios/75.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/71.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-3" sound="media/audios/76.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container" >
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" >
+          </div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container" style="display: none;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4"></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider9" >
+          <div class="athkarattr-1" sound="media/audios/77.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/71.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-3" sound="media/audios/72.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-4" sound="media/audios/74.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container" >
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" >
+          </div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4">
+          </div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider10" >
+          <div class="athkarattr-1" sound="media/audios/78.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/71.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container" >
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container" >
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4"></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider11" >
+          <div class="athkarattr-1" sound="media/audios/63.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container" >
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4"></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider12" >
+          <div class="athkarattr-1" sound="media/audios/64.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/60.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-3" sound="media/audios/79.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-4" sound="media/audios/67.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container" >
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container" >
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4 "></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider13" >
+          <div class="athkarattr-1" sound="media/audios/68.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/69.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container" >
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container" >
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4"></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider14" >
+          <div class="athkarattr-1" sound="media/audios/80.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/71.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-3" sound="media/audios/72.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-4" sound="media/audios/74.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container" >
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container" >
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4"></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider15" >
+          <div class="athkarattr-1" sound="media/audios/75.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/71.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-3" sound="media/audios/76.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container" >
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4"></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider16" >
+          <div class="athkarattr-1" sound="media/audios/81.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/71.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-3" sound="media/audios/72.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-4" sound="media/audios/74.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container" style="top: 59%;">
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container" style="top: 59%;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4"></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider17" >
+          <div class="athkarattr-1" sound="media/audios/83.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/84.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container" >
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <div class="image-salah-boy1" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4"></div>
+          <div class="image-salah-girl1" ></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider18" >
+          <div class="athkarattr-1" sound="media/audios/78.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/71.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container" style="top: 50%;">
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <div class="image-salah-boy1" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container" style="top: 50%;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4"></div>
+          <div class="image-salah-girl1" ></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+
+          <div class="swiper-slide how-to-pray-slider19">
+<div class="athkarattr-1" sound="media/audios/63-1.mp3" onclick="soundPlay(this)"></div>
+<div class="boyslaha-container" >
+<div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4">
+</div>
+<video class="boy-salah" autoplay="">
+<source src="" type="video/mp4">
+</video>
+</div>
+<div class="girlslaha-container">
+<div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" >
+</div>
+<video class="girl-salah" autoplay="">
+<source src="" type="video/mp4">
+</video>
+</div>
+          </div>
+
+
+          <div class="swiper-slide how-to-pray-slider20" >
+            <div class="athkarattr-1" sound="media/audios/64.mp3" onclick="soundPlay(this)"></div>
+            <div class="athkarattr-2" sound="media/audios/60.mp3" onclick="soundPlay(this)"></div>
+            <div class="athkarattr-3" sound="media/audios/79.mp3" onclick="soundPlay(this)"></div>
+            <div class="athkarattr-4" sound="media/audios/67.mp3" onclick="soundPlay(this)"></div>
+            <div class="boyslaha-container" style="top: 50%;">
+            <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4">
+            </div>
+            <video class="boy-salah" autoplay="">
+            <source src="" type="video/mp4">
+            </video>
+            </div>
+            <div class="girlslaha-container"style="top: 50%;">
+            <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4">
+            </div>
+            <video class="girl-salah" autoplay="">
+            <source src="" type="video/mp4">
+            </video>
+            </div>
+            </div>
+            <div class="swiper-slide how-to-pray-slider21" >
+<div class="athkarattr-1" sound="media/audios/68.mp3" onclick="soundPlay(this)"></div>
+<div class="athkarattr-2" sound="media/audios/69.mp3" onclick="soundPlay(this)"></div>
+<div class="boyslaha-container" style="display: block;">
+<div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4">
+</div>
+<video class="boy-salah" autoplay="">
+<source src="" type="video/mp4">
+</video>
+</div>
+<div class="girlslaha-container" style="display: none;">
+<div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4">
+</div>
+<video class="girl-salah" autoplay="">
+<source src="" type="video/mp4">
+</video>
+</div>
+            </div>
+
+            <div class="swiper-slide how-to-pray-slider22" >
+              <div class="athkarattr-1" sound="media/audios/90.mp3" onclick="soundPlay(this)"></div>
+              <div class="athkarattr-2" sound="media/audios/71.mp3" onclick="soundPlay(this)"></div>
+              <div class="athkarattr-3" sound="media/audios/72.mp3" onclick="soundPlay(this)"></div>
+              <div class="athkarattr-4" sound="media/audios/74.mp3" onclick="soundPlay(this)"></div>
+              <div class="boyslaha-container" style="top: 59%; display: block;">
+              <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4">
+              </div>
+              <video class="boy-salah" autoplay="">
+              <source src="" type="video/mp4">
+              </video>
+              </div>
+              <div class="girlslaha-container" style="top: 59%; display: none;">
+              <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4">
+              </div>
+              <video class="girl-salah" autoplay="">
+              <source src="" type="video/mp4">
+              </video>
+              </div>
+              </div>
+              <div class="swiper-slide how-to-pray-slider23" >
+                <div class="athkarattr-1" sound="media/audios/75.mp3" onclick="soundPlay(this)"></div>
+                <div class="athkarattr-2" sound="media/audios/71.mp3" onclick="soundPlay(this)"></div>
+                <div class="athkarattr-3" sound="media/audios/76.mp3" onclick="soundPlay(this)"></div>
+                <div class="boyslaha-container" style="top: 50%;">
+                <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4">
+                </div>
+                <video class="boy-salah" autoplay="">
+                <source src="" type="video/mp4">
+                </video>
+                </div>
+                <div class="girlslaha-container"style="top: 50%;">
+                <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4">
+                </div>
+                <video class="girl-salah" autoplay="">
+                <source src="" type="video/mp4">
+                </video>
+                </div>
+                </div>
+
+                <div class="swiper-slide how-to-pray-slider24" >
+                  <div class="athkarattr-1" sound="media/audios/91.mp3" onclick="soundPlay(this)"></div>
+                  <div class="athkarattr-2" sound="media/audios/71.mp3" onclick="soundPlay(this)"></div>
+                  <div class="athkarattr-3" sound="media/audios/72.mp3" onclick="soundPlay(this)"></div>
+                  <div class="athkarattr-4" sound="media/audios/74.mp3" onclick="soundPlay(this)"></div>
+                  <div class="boyslaha-container" style="top: 59%; display: block;">
+                  <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4">
+                  </div>
+                  <video class="boy-salah" autoplay="">
+                  <source src="" type="video/mp4">
+                  </video>
+                  </div>
+                  <div class="girlslaha-container" style="top: 59%; display: none;">
+                  <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4">
+                  </div>
+                  <video class="girl-salah" autoplay="">
+                  <source src="" type="video/mp4">
+                  </video>
+                  </div>
+                  </div>
+
+                  <div class="swiper-slide how-to-pray-slider25" >
+                    <div class="athkarattr-1" sound="media/audios/83.mp3" onclick="soundPlay(this)"></div>
+                    <div class="athkarattr-2" sound="media/audios/84.mp3" onclick="soundPlay(this)"></div>
+                    <div class="boyslaha-container" style="top: 50%;">
+                    <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4"></div>
+                    <div class="image-salah-boy1"></div>
+                    <video class="boy-salah" autoplay="">
+                    <source src="" type="video/mp4">
+                    </video>
+                    </div>
+                    <div class="girlslaha-container" style="top: 59%; display: none;">
+                    <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4"></div>
+                    <div class="image-salah-girl1"25></div>
+                    <video class="girl-salah" autoplay="">
+                    <source src="" type="video/mp4">
+                    </video>
+                    </div>
+                    </div>
+                    
+                    <div class="swiper-slide how-to-pray-slider26" >
+                      <div class="athkarattr-1" sound="media/audios/85.mp3" onclick="soundPlay(this)"></div>
+                      <div class="athkarattr-2" sound="media/audios/86.mp3" onclick="soundPlay(this)"></div>
+                      <div class="boyslaha-container" style="top: 50%;">
+                      <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4"></div>
+                      <div class="image-salah-boy1"></div>
+                      <video class="boy-salah" autoplay="">
+                      <source src="" type="video/mp4">
+                      </video>
+                      </div>
+                      <div class="girlslaha-container"style="top: 50%;">
+                      <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4"></div>
+                      <div class="image-salah-girl1"></div>
+                      <video class="girl-salah" autoplay="">
+                      <source src="" type="video/mp4">
+                      </video>
+                      </div>
+                      </div>
+                      <div class="swiper-slide how-to-pray-slider27" >
+                        <div class="athkarattr-1" sound="media/audios/87.mp3" onclick="soundPlay(this)"></div>
+                        <div class="athkarattr-2" sound="media/audios/88.mp3" onclick="soundPlay(this)"></div>
+                        <div class="athkarattr-3" sound="media/audios/89.mp3" onclick="soundPlay(this)"></div>
+                        <div class="athkarattr-4" sound="media/audios/88.mp3" onclick="soundPlay(this)"></div>
+                        <div class="boyslaha-container" style="top: 50%;">
+                        <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4"></div>
+                        <div class="image-salah-boy1"></div>
+                        <video class="boy-salah" autoplay="">
+                        <source src="" type="video/mp4">
+                        </video>
+                        </div>
+                        <div class="girlslaha-container"style="top: 50%;">
+                        <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4"></div>
+                        <div class="image-salah-girl1"></div>
+                        <video class="girl-salah" autoplay="">
+                        <source src="" type="video/mp4">
+                        </video>
+                        </div>
+                        </div>
+          </div>
+          <div class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets" id="how-to-pray-screenP"><span class="swiper-pagination-bullet swiper-pagination-bullet-active" tabindex="0" role="button" aria-label="Go to slide 1">1</span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 2">2</span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 3">3</span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 4">4</span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 5">5</span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 6">6</span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 7">7</span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 8">8</span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 9">9</span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide "></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide "></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide "></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide "></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide "></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide "></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide "></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide "></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide "></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide "></span></div>
+          <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+        </div>
+        <div class="salahE slah" >
+          <div class="salahss" sound="media/audios/102.mp3" onclick="soundPlay(this)"></div>
+          <div class="pray" sound="media/audios/102.mp3" onclick="soundPlay(this)"></div>
+          <div class="home" sound="media/audios/102.mp3" onclick="soundPlay(this)"></div>
+          <div class="swiper-container swiper-container-initialized swiper-container-horizontal swiper-container-rtl swiper-container-ios" dir="rtl">
+          <div class="swiper-wrapper" >
+          <div class="swiper-slide how-to-pray-slider1" >
+          <div class="athkarattr-1 slide1" sound="media/audios/56.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr slide1" sound="media/audios/57.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2 slide1" sound="media/audios/58.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container" >
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container" >
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider2" >
+          <div class="athkarattr-1 " sound="media/audios/59.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2 " sound="media/audios/60.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container" >
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container" style="display: none;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider3" >
+          <div class="athkarattr-1" sound="media/audios/61.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/62.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container" >
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4"></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container" style="display: none;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4"></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider4" >
+          <div class="athkarattr-1" sound="media/audios/63.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container" >
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container" style="display: none;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4"></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider5" >
+          <div class="athkarattr-1" sound="media/audios/64.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/60.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-3" sound="media/audios/65.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-4" sound="media/audios/67.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container"style="top: 50%;">
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4"></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container"style="top: 50%;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4"></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider6" >
+          <div class="athkarattr-1" sound="media/audios/68.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/69.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container" >
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container" style="display: none;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4"></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider7" >
+          <div class="athkarattr-1" sound="media/audios/70.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/71.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-3" sound="media/audios/72.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-4" sound="media/audios/74.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container" style="top: 59%; ">
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container" style="top: 59%;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider8" >
+          <div class="athkarattr-1" sound="media/audios/75.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/71.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-3" sound="media/audios/76.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container"style="top: 50%;">
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container"style="top: 50%;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider9" >
+          <div class="athkarattr-1" sound="media/audios/77.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/71.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-3" sound="media/audios/72.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-4" sound="media/audios/74.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container" style="top: 59%; ">
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container" style="top: 59%;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider10" >
+          <div class="athkarattr-1" sound="media/audios/78.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/71.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container" >
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container" style="display: none;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider11" >
+          <div class="athkarattr-1" sound="media/audios/63.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container" >
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container" style="display: none;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4"></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider12" >
+          <div class="athkarattr-1" sound="media/audios/64.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/60.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-3" sound="media/audios/79.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-4" sound="media/audios/67.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container"style="top: 50%;">
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container"style="top: 50%;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider13" >
+          <div class="athkarattr-1" sound="media/audios/68.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/69.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container" >
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container" style="display: none;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider14" >
+          <div class="athkarattr-1" sound="media/audios/80.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/71.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-3" sound="media/audios/72.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-4" sound="media/audios/74.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container" style="top: 59%; ">
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container" style="top: 59%;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider15" >
+          <div class="athkarattr-1" sound="media/audios/75.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/71.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-3" sound="media/audios/76.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container"style="top: 50%;">
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container"style="top: 50%;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider16" >
+          <div class="athkarattr-1" sound="media/audios/81.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/71.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-3" sound="media/audios/72.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-4" sound="media/audios/74.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container" style="top: 59%; ">
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container" style="top: 59%;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider17" >
+          <div class="athkarattr-1" sound="media/audios/83.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/84.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container"style="top: 50%;">
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container"style="top: 50%;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider18" >
+          <div class="athkarattr-1" sound="media/audios/78.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/71.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container" >
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container" style="display: none;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4"></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider19" >
+          <div class="athkarattr-1" sound="media/audios/63-1.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container">
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container" >
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider20" >
+          <div class="athkarattr-1" sound="media/audios/64.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/60.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-3" sound="media/audios/79.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-4" sound="media/audios/67.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container"style="top: 50%;">
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container"style="top: 50%;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider21" >
+          <div class="athkarattr-1" sound="media/audios/68.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/69.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container" >
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container" style="display: none;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider22" >
+          <div class="athkarattr-1" sound="media/audios/90.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/71.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-3" sound="media/audios/72.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-4" sound="media/audios/74.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container" style="top: 59%; ">
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container" style="top: 59%;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4"></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider23 " >
+          <div class="athkarattr-1" sound="media/audios/75.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/71.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-3" sound="media/audios/76.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container"style="top: 50%;">
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container"style="top: 50%;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider24" >
+          <div class="athkarattr-1" sound="media/audios/91.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/71.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-3" sound="media/audios/72.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-4" sound="media/audios/74.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container" style="top: 59%; ">
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4"></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container" style="top: 59%;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4"></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider25" >
+          <div class="athkarattr-1" sound="media/audios/78.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/71.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container" >
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4"></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container" style="display: none;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider26" >
+          <div class="athkarattr-1" sound="media/audios/63-1.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container" >
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container" style="display: none;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4"></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider27" >
+          <div class="athkarattr-1" sound="media/audios/64.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/60.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-3" sound="media/audios/79.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-4" sound="media/audios/67.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container"style="top: 50%;">
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container"style="top: 50%;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider28" >
+          <div class="athkarattr-1" sound="media/audios/68.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/69.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container" >
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container" style="display: none;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider29" >
+          <div class="athkarattr-1" sound="media/audios/93.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/71.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-3" sound="media/audios/72.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-4" sound="media/audios/74.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container" style="top: 59%; ">
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container" style="top: 59%;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider30" >
+          <div class="athkarattr-1" sound="media/audios/75.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/71.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-3" sound="media/audios/76.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container"style="top: 50%;">
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4"></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container"style="top: 50%;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider31" >
+          <div class="athkarattr-1" sound="media/audios/95.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/71.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-3" sound="media/audios/72.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-4" sound="media/audios/74.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container" style="top: 59%; ">
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container" style="top: 59%;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider32" >
+          <div class="athkarattr-1" sound="media/audios/83.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/84.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container"style="top: 50%;">
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4"></div>
+          <div class="image-salah-boy1"></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container" style="top: 50%;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <div class="image-salah-girl1" ></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider33" >
+          <div class="athkarattr-1" sound="media/audios/85.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/86.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container">
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4"></div>
+          <div class="image-salah-boy1" ></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container"style="top: 50%;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <div class="image-salah-girl1" ></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          <div class="swiper-slide how-to-pray-slider34" >
+          <div class="athkarattr-1" sound="media/audios/87.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-2" sound="media/audios/88.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-3" sound="media/audios/89.mp3" onclick="soundPlay(this)"></div>
+          <div class="athkarattr-4" sound="media/audios/88.mp3" onclick="soundPlay(this)"></div>
+          <div class="boyslaha-container"style="top: 50%;">
+          <div class="image-salah-boy" videosrc="https://www.w3schools.com/html/mov_bbb.mp4" ></div>
+          <div class="image-salah-boy1"></div>
+          <video class="boy-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          <div class="girlslaha-container"style="top: 50%;">
+          <div class="image-salah-girl" videosrc="https://www.w3schools.com/html/mov_bbb.mp4"></div>
+          <div class="image-salah-girl1" ></div>
+          <video class="girl-salah" autoplay="">
+          <source src="" type="video/mp4">
+          </video>
+          </div>
+          </div>
+          </div>
+        <div class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets" id="how-to-pray-screenP"><span class="swiper-pagination-bullet swiper-pagination-bullet-active" tabindex="0" role="button" aria-label="Go to slide 1">1</span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 2">2</span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 3">3</span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 4">4</span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 5">5</span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 6">6</span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 7">7</span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 8">8</span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 9">9</span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide "></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide "></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide "></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide "></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide "></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide "></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide "></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide "></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide "></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide "></span></div>
+          </div>
+         </div>
+      </div>
+      <div class="all-games-screen">
+        <div class="title"></div>
+        <div class="home"></div>
+        <div class="iframe-container" id="game-container-iframe">
+          <!-- <iframe id="game-iframe" src="https://www.manhal.com/platform/media/7465/c15cd4e9bb010c8c55bcbf1c621127da.html" width="100%" height="100%" __idm_id__="81921"></iframe> -->
+          <div class="exit-full-screen"></div>
+          </div>
+      
+          
+              <a class="game-item game1">
+                <div class="image"></div>
+                <div class="title-description"></div>
+              </a>
+         
+            
+              <a class="game-item  game2">
+                <div class="image " ></div>
+                <div class="title-description"></div>
+              </a>
+       
+            
+              <a class="game-item  game3">
+                <div class="image"></div>
+                <div class="title-description"></div>
+              </a>
+       
+            
+              <a class="game-item  game4">
+                <div class="image"></div>
+                <div class="title-description"></div>
+              </a>
+          
+            
+              <a class="game-item  game5">
+                <div class="image"></div>
+                <div class="title-description"></div>
+              </a>
+         
+            
+              <a class="game-item  game6">
+                
+                <div class="image"></div>
+                <div class="title-description"></div>
+              </a>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+   <!-- تحميل JavaScript الخاص بـ Swiper -->
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="./JS/script.js" class="script" async></script>
+    
+  </body>
+</html>

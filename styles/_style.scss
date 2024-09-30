@@ -1,0 +1,3376 @@
+@use "./variables/colors" as *;
+@use "./variables/mediaQuery" as *;
+@use "./mixins" as *;
+@use "./fonts" as *;
+@use "./global" as *;
+$padding: 1.5rem;
+$gap: 1rem;
+$gap-1: 2rem;
+$gap-2: 22vh;
+$gap-3: 2vh;
+$gap-4: 0.5rem;
+$border-radius: 1.25rem;
+$width: 85%;
+%fixed-position {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+%overlay {
+  width: 100vw;
+  height: 100vh;
+  @extend %fixed-position;
+  z-index: 10000;
+  background-color: $overlay;
+}
+%phone-child {
+  content: "";
+  width: 100%;
+  border-bottom: 0.1875rem solid $black-1;
+  position: absolute;
+  left: 0;
+}
+%text {
+  color: $black-1;
+  font-family: MochiyPopPOne-Regular;
+  text-align: center;
+}
+%width {
+  width: calc((100% - $gap) / 4);
+}
+
+.icon {
+  height: 100%;
+  max-height: 3rem;
+  aspect-ratio: 1;
+  position: relative;
+  z-index: 1000;
+  background: linear-gradient(to bottom, $yellow-3 2%, $yellow-2);
+  color: $white-1;
+  font-size: 1.25rem;
+  border: 0.25rem solid $blue-1;
+  border-radius: 27%;
+  box-shadow: 0 0.25rem 0.25rem $shadow-1;
+  .fa-solid {
+    filter: drop-shadow(0 0.25rem 0.25rem $shadow-1);
+  }
+
+  &.info {
+    transform-style: preserve-3d;
+
+    &.show {
+      &::before {
+        opacity: 1;
+        animation-name: visible;
+        animation-duration: 0.5s;
+        animation-iteration-count: 1;
+      }
+    }
+
+    &.hide {
+      &::before {
+        transform: translateZ(-1px) scaleX(0);
+      }
+    }
+
+    &::before {
+      content: attr(text);
+      height: 100%;
+      padding: 0.25rem 1.5rem;
+      position: absolute;
+      left: 80%;
+      transform: translateZ(-1px);
+      opacity: 0;
+      transform-origin: 0 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: $white-1;
+      color: $black-1;
+      font-size: 90%;
+      font-family: MochiyPopPOne-Regular;
+      white-space: nowrap;
+      letter-spacing: 0.1rem;
+      @include mediaQuery($mobile_min_width) {
+        font-size: 70%;
+      }
+      border-radius: 0 0.75rem 0.75rem 0;
+      transition: 0.5s;
+      filter: drop-shadow(0 0.25rem 0.25rem $shadow-1);
+    }
+  }
+
+  &.pause {
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: calc(100vh - (2 * $padding));
+    transform: translateY(-100%);
+    transition: 0.5s;
+    visibility: hidden;
+    z-index: 111111111111;
+    .fa-solid {
+      &.hide {
+        display: none;
+      }
+    }
+  }
+}
+
+.loader-container {
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+  display: none;
+  justify-content: center;
+  align-items: center;
+
+  .loader {
+    --d: 22px;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    color: #25b09b;
+    box-shadow: calc(1 * var(--d)) calc(0 * var(--d)) 0 0,
+      calc(0.707 * var(--d)) calc(0.707 * var(--d)) 0 1px,
+      calc(0 * var(--d)) calc(1 * var(--d)) 0 2px,
+      calc(-0.707 * var(--d)) calc(0.707 * var(--d)) 0 3px,
+      calc(-1 * var(--d)) calc(0 * var(--d)) 0 4px,
+      calc(-0.707 * var(--d)) calc(-0.707 * var(--d)) 0 5px,
+      calc(0 * var(--d)) calc(-1 * var(--d)) 0 6px;
+    animation: l27 1s infinite steps(8);
+  }
+}
+
+@keyframes l27 {
+  100% {
+    transform: rotate(1turn);
+  }
+}
+
+.main-container {
+  display: block;
+  overflow: hidden;
+  width: 80%;
+  height: 100%;
+  position: relative;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  background-size: 100% 100%;
+  @include mediaQuery($medScreen_max_width) {
+    width: 80%;
+  }
+
+  &.hideGame {
+    animation-name: hideGame;
+    animation-timing-function: linear;
+    animation-duration: 0.7s;
+    animation-iteration-count: 1;
+  }
+
+  .start-screen-container,
+  .play-or-learn-screen,
+  .the-five-salah-screen,
+  .all-salah-container,
+  .athkar-alsalah-screen,
+  .how-to-pray-screen,
+  .all-games-screen {
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    width: 108;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+
+    left: 0;
+
+    right: 0;
+
+    margin: auto;
+
+    display: none;
+    
+    
+    
+  }
+  .start-screen-container {
+    background-image: url(../media/images/startScreen.svg);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    a {
+      width: 24vw;
+      height: 50vh;
+      background-image: url(../media/images/circle.svg);
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+      position: relative;
+      cursor: pointer;
+
+      @include mediaQuery($Tablet_min_width) {
+        width: 18vw;
+        height: 45vh;
+      }
+      @include mediaQuery($medScreen_min_width) {
+        width: 20vw;
+        height: 35vh;
+      }
+      @include mediaQuery($largeScreen_min_width) {
+        width: 16vw;
+        height: 40vh;
+      }
+      @include mediaQuery($XlargeScreen_min_width) {
+        width: 16vw;
+        height: 47vh;
+      }
+      div {
+        width: 60%;
+        height: 73%;
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translate(-50%, -100%);
+      }
+      &.boy-container {
+        div {
+          background-image: url(../media/images/boy.svg);
+          background-position: center;
+          background-size: contain;
+          background-repeat: no-repeat;
+        }
+      }
+      &.girl-container {
+        div {
+          background-image: url(../media/images/girl.svg);
+          background-position: center;
+          background-size: contain;
+          background-repeat: no-repeat;
+        }
+      }
+    }
+  }
+  .play-or-learn-screen {
+    background-image: url(../media/images/bg-svg.svg);
+    position: relative;
+
+    .title {
+      background-image: url(../media/images/title.svg);
+      overflow: visible;
+      width: 48%;
+      height: 16%;
+      position: absolute;
+      top: 10%;
+      right: 0;
+      margin: auto;
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      cursor: pointer;
+      transform: translateY(-170%);
+      &.animated {
+        animation: slideInDown 0.5s 0.4s ease-in-out forwards;
+      }
+    }
+    .learn {
+      display: block;
+      overflow: visible;
+      width: 11%;
+      height: 16%;
+      position: absolute;
+      top: 29%;
+      right: 11%;
+      margin: auto;
+      background: url(../media/images/2h.svg);
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      cursor: pointer;
+      transform: translateX(100%);
+      &.animated {
+        animation: slideInRight 1s ease-in-out forwards;
+      }
+      &:hover {
+        background-image: url(../media/images/2.svg);
+      }
+    }
+    .play {
+      display: block;
+      overflow: visible;
+      width: 11%;
+      height: 16%;
+      position: absolute;
+      top: 29%;
+      right: 26%;
+      margin: auto;
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      cursor: pointer;
+      background-image: url(../media/images/1h.svg);
+      transform: translateX(-100%);
+      &.animated {
+        animation: slideInLeft 1s ease-in-out forwards;
+      }
+      &:hover {
+        background-image: url(../media/images/1.svg);
+      }
+    }
+    .boy,
+    .girl {
+      display: none;
+      overflow: visible;
+      width: 48%;
+      height: 46%;
+      position: absolute;
+      bottom: 7%;
+      right: 7%;
+      margin: auto;
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    .boy {
+      background-image: url(../media/images/boy1.svg);
+    }
+    .girl {
+      background-image: url(../media/images/girl1.svg);
+    }
+  }
+  .the-five-salah-screen {
+    background-image: url(../media/images/bg3-svg.svg);
+    position: relative;
+    .title {
+      overflow: visible;
+      width: 38%;
+      height: 15%;
+      position: absolute;
+      top: 9%;
+      right: 0;
+      left: 0;
+      margin: auto;
+      background: url(../media/images/title1.svg);
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      transform: translateY(-170%);
+      &.animated {
+        animation: slideInDown 0.5s 0.4s ease-in-out forwards;
+      }
+    }
+    .salah1,
+    .salah2,
+    .salah3,
+    .salah4,
+    .salah5 {
+      width: 14%;
+      height: 14%;
+      overflow: visible;
+      margin: auto;
+      position: absolute;
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      cursor: pointer;
+      transform: scale(0.1);
+      &.animated {
+        animation: zoomIn 0.9s ease-in-out forwards;
+      }
+    }
+
+    .salah1 {
+      top: 2%;
+      bottom: 0;
+      right: 4%;
+
+      background-image: url(../media/images/salah1.svg);
+      &:hover {
+        background-image: url(../media/images/salah1h.svg);
+      }
+    }
+    .salah2 {
+      bottom: 49%;
+      right: 22%;
+
+      background-image: url(../media/images/salah2.svg);
+      &:hover {
+        background-image: url(../media/images/salah2h.svg);
+      }
+    }
+
+    .salah3 {
+      bottom: 54%;
+      right: 42.8%;
+      background-image: url(../media/images/salah3.svg);
+      &:hover {
+        background-image: url(../media/images/salah3h.svg);
+      }
+    }
+    .salah4 {
+      bottom: 49%;
+      left: 22%;
+      background-image: url(../media/images/salah4.svg);
+      &:hover {
+        background-image: url(../media/images/salah4h.svg);
+      }
+    }
+    .salah5 {
+      top: 2%;
+      bottom: 0;
+      left: 4%;
+      background-image: url(../media/images/salah5.svg);
+      &:hover {
+        background-image: url(../media/images/salah5h.svg);
+      }
+    }
+    .shape1,
+    .shape2,
+    .shape3,
+    .shape4,
+    .shape5 {
+      overflow: visible;
+      width: 9%;
+      height: 9%;
+      position: absolute;
+      margin: auto;
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    .shape1 {
+      background-image: url(../media/images/moon1.png);
+      bottom: 29%;
+      right: 12%;
+      animation: circle1 1s linear forwards;
+    }
+    .shape2 {
+      background-image: url(../media/images/moon2.png);
+      bottom: 35.4%;
+      right: 28%;
+      animation: circle1 1s linear forwards;
+    }
+    .shape3 {
+      background-image: url(../media/images/moon3.png);
+      bottom: 38.3%;
+      right: 45%;
+      animation: circle1 1s linear forwards;
+    }
+    .shape4 {
+      background-image: url(../media/images/moon4.png);
+      bottom: 35.4%;
+      left: 28%;
+      animation: circle1 1s linear forwards;
+    }
+    .shape5 {
+      bottom: 29%;
+      left: 12%;
+      background-image: url(../media/images/moon5.png);
+      animation: circle1 1s linear forwards;
+    }
+    .home {
+      width: 5.5vw;
+      height: 3vw;
+      display: block;
+      overflow: visible;
+
+      position: absolute;
+      bottom: 4vh;
+      right: 6vw;
+      margin: auto;
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      cursor: pointer;
+      background-image: url(../media/images/home.svg);
+      &:hover {
+        background-image: url(../media/images/homeh.svg);
+        animation: skew 0.3s ease-in-out forwards;
+      }
+    }
+  }
+  .all-salah-container {
+    .salahss,
+    .pray,
+    .home,
+    .athkar {
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      position: absolute;
+      display: block;
+      overflow: visible;
+      width: 5.5%;
+      height: 5.5%;
+      margin: auto;
+      cursor: pointer;
+      z-index: 90000;
+      &:hover {
+        animation: skew 0.4s linear forwards;
+      }
+    }
+    .salahss {
+      background-image: url(../media/images/salah.svg);
+      bottom: 4%;
+      right: 8vw;
+      // @include mediaQuery($medScreen_min_width){
+      //   right: 6%;
+      // }
+      &:hover {
+        background-image: url(../media/images/salahh.svg);
+      }
+    }
+    .pray {
+      background-image: url(../media/images/pray.svg);
+      bottom: 4%;
+      right: 13vw;
+      // @include mediaQuery($medScreen_min_width){
+      //   right: 11%;
+      // }
+      &:hover {
+        background-image: url(../media/images/prayh.svg);
+      }
+    }
+
+    .athkar {
+      background-image: url(../media/images/athkar.svg);
+      bottom: 4%;
+      right: 18vw;
+      // @include mediaQuery($medScreen_min_width){
+      //   right: 16%;
+      // }
+      &:hover {
+        background-image: url(../media/images/athkarh.svg);
+      }
+    }
+    .home {
+      background-image: url(../media/images/home.svg);
+      bottom: 4%;
+      right: 23vw;
+      // @include mediaQuery($medScreen_min_width){
+      //   right: 21%;
+      // }
+      &:hover {
+        background-image: url(../media/images/homeh.svg);
+      }
+    }
+    .salah1-container,
+    .salah2-container,
+    .salah3-container,
+    .salah4-container,
+    .salah5-container {
+      display: none;
+      overflow: visible;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    .swiper-container {
+      width: 100%;
+      height: 100%;
+      .swiper-wrapper {
+        width: 100%;
+        height: 100%;
+        .swiper-slide {
+          color: white;
+          text-align: center;
+          font-size: 20px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          background-size: contain;
+          background-position: center;
+          background-repeat: no-repeat;
+          width: 100%;
+          height: 100%;
+          .text-1,
+          .text-2,
+          .text-3,
+          .text-4,
+          .text-5,
+          .text-6,
+          .text-7,
+          .text-8 {
+            display: block;
+            overflow: hidden;
+
+            position: absolute;
+
+            cursor: pointer;
+          }
+          .text-1 {
+            width: 8%;
+            height: 4%;
+            top: 25%;
+            right: 6%;
+          }
+          .text-2 {
+            width: 26%;
+            height: 5%;
+            top: 30%;
+            right: 9%;
+          }
+          .text-3 {
+            width: 26%;
+            height: 5%;
+            top: 35.6%;
+            right: 9%;
+          }
+          .text-4 {
+            width: 13%;
+            height: 4%;
+            top: 43.5%;
+            right: 6%;
+          }
+          .text-5 {
+            width: 24.9%;
+            height: 6.6%;
+            position: absolute;
+            top: 49.7%;
+            right: 9.3%;
+          }
+          .text-6 {
+            width: 24.9%;
+            height: 6.6%;
+            position: absolute;
+            top: 58%;
+            right: 9.3%;
+          }
+          .text-7 {
+            width: 16%;
+            height: 5%;
+            position: absolute;
+            top: 68.7%;
+            right: 6%;
+          }
+          .text-8 {
+            width: 16%;
+            height: 5%;
+            top: 77%;
+            right: 6%;
+          }
+          .conditions-title,
+          .conditions-1,
+          .conditions-2,
+          .conditions-3,
+          .conditions-4,
+          .conditions-5,
+          .conditions-6,
+          .conditions-7,
+          .conditions-8 {
+            display: block;
+            overflow: hidden;
+            position: absolute;
+            margin: auto;
+            cursor: pointer;
+          }
+          .conditions-title {
+            width: 30%;
+            height: 6.5%;
+
+            top: 3%;
+            right: 0;
+            left: 0;
+          }
+          .conditions-1 {
+            width: 17.6%;
+            height: 20%;
+
+            top: 11.7%;
+            right: 22.6%;
+          }
+          .conditions-2 {
+            width: 17.6%;
+            height: 20%;
+
+            top: 11.7%;
+            left: 21.6%;
+          }
+          .conditions-3 {
+            width: 17.6%;
+            height: 20%;
+
+            top: 33.7%;
+            right: 22.6%;
+          }
+          .conditions-4 {
+            width: 17.6%;
+            height: 20%;
+
+            top: 33.7%;
+            left: 21.6%;
+          }
+          .conditions-5 {
+            width: 22.3%;
+            height: 20%;
+
+            top: 55.7%;
+            right: 20.6%;
+          }
+          .conditions-6 {
+            width: 17.6%;
+            height: 20%;
+
+            top: 55.7%;
+            left: 21.6%;
+          }
+          .conditions-7 {
+            width: 18.5%;
+            height: 20%;
+
+            top: 77.7%;
+            right: 22.3%;
+          }
+          .conditions-8 {
+            width: 17.6%;
+            height: 20%;
+
+            top: 77.7%;
+            left: 21.6%;
+          }
+          .salah-time,
+          .boy,
+          .girl,
+          .conditions-of-prayer {
+            display: block;
+            overflow: visible;
+            position: absolute;
+            margin: auto;
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+          }
+          .salah-time {
+            top: 18%;
+            left: 9%;
+            width: 30%;
+            height: 60%;
+          }
+          .boy,
+          .girl {
+            display: none;
+            top: 32%;
+            left: 9%;
+            width: 38%;
+            height: 60%;
+          }
+          .boy {
+            background-image: url(../media/images/boy2.svg);
+          }
+          .girl {
+            background-image: url(../media/images/girl2.svg);
+          }
+          .conditions-of-prayer {
+            width: 46%;
+            height: 78%;
+            position: absolute;
+            top: 11%;
+            left: 3%;
+            background-image: url(../media/images/conditionsofprayer.svg);
+          }
+        }
+      }
+      .swiper-pagination {
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        margin: 10px;
+        .swiper-pagination-bullet {
+          width: 1vw;
+          height: 1.9vh;
+        }
+        .swiper-pagination-bullet-active {
+          background-color: $theme;
+        }
+      }
+    }
+
+    .salah1-container {
+      .swiper-slide {
+        background-image: url(../media/images/alfgr.svg);
+        .salah-time {
+          background-image: url(../media/images/masged1.png);
+        }
+      }
+    }
+    .salah2-container {
+      .swiper-slide {
+        background-image: url(../media/images/alsalahPage.svg);
+        .salah-time {
+          background-image: url(../media/images/masged2.png);
+        }
+      }
+    }
+    .salah3-container {
+      .swiper-slide {
+        background-image: url(../media/images/alasr.svg);
+        .salah-time {
+          background-image: url(../media/images/masged3.png);
+        }
+      }
+    }
+    .salah4-container {
+      .swiper-slide {
+        background-image: url(../media/images/albagreb3.svg);
+        .salah-time {
+          background-image: url(../media/images/masged4.png);
+        }
+      }
+    }
+    .salah5-container {
+      .swiper-slide {
+        background-image: url(../media/images/eshaa.svg);
+        .salah-time {
+          background-image: url(../media/images/masged5.png);
+        }
+      }
+    }
+  }
+  .athkar-alsalah-screen {
+    background-image: url(../media/images/azkar.svg);
+    .salahss,
+    .pray,
+    .home,
+    .athkar {
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      position: absolute;
+      display: block;
+      overflow: visible;
+      width: 5.5%;
+      height: 5.5%;
+      margin: auto;
+      cursor: pointer;
+      z-index: 90000;
+      &:hover {
+        animation: skew 0.4s linear forwards;
+      }
+    }
+    .salahss {
+      background-image: url(../media/images/salah.svg);
+      bottom: 4%;
+      right: 8vw;
+      // @include mediaQuery($medScreen_min_width){
+      //   right: 6%;
+      // }
+      &:hover {
+        background-image: url(../media/images/salahh.svg);
+      }
+    }
+    .pray {
+      background-image: url(../media/images/pray.svg);
+      bottom: 4%;
+      right: 13vw;
+      // @include mediaQuery($medScreen_min_width){
+      //   right: 11%;
+      // }
+      &:hover {
+        background-image: url(../media/images/prayh.svg);
+      }
+    }
+
+    .athkar {
+      background-image: url(../media/images/athkar.svg);
+      bottom: 4%;
+      right: 18vw;
+      // @include mediaQuery($medScreen_min_width){
+      //   right: 16%;
+      // }
+      &:hover {
+        background-image: url(../media/images/athkarh.svg);
+      }
+    }
+    .home {
+      background-image: url(../media/images/home.svg);
+      bottom: 4%;
+      right: 18vw;
+      // @include mediaQuery($medScreen_min_width){
+      //   right: 21%;
+      // }
+      &:hover {
+        background-image: url(../media/images/homeh.svg);
+      }
+    }
+    .title {
+      display: block;
+      overflow: visible;
+      width: 12%;
+      height: 12%;
+      position: absolute;
+      top: 7%;
+      right: 23%;
+      margin: auto;
+      background: url(../media/images/title2.svg);
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    .right-content {
+      display: block;
+      overflow: visible;
+      width: 30%;
+      height: 80%;
+      position: absolute;
+      top: 9%;
+      right: 22%;
+      margin: auto;
+      background: url(../media/images/Athkartext.svg);
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    .left-content {
+      display: block;
+      overflow: visible;
+      width: 49%;
+      height: 80%;
+      position: absolute;
+      top: 9%;
+      left: 6%;
+      margin: auto;
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      .boy {
+        display: block;
+        overflow: visible;
+        width: 62%;
+        height: 80%;
+        position: absolute;
+        top: 41%;
+        left: 5%;
+        margin: auto;
+        background: url(../media/images/boyAzkar.svg);
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+    }
+  }
+  .how-to-pray-screen {
+    .pray,
+    .home {
+      display: block;
+      overflow: visible;
+      width: 5.5%;
+      height: 5.5%;
+      position: absolute;
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      cursor: pointer;
+      z-index: 9000;
+      margin: auto;
+      bottom: 6%;
+      &:hover {
+        animation: skew 0.4s linear forwards;
+      }
+    }
+    .pray {
+      right: 11%;
+      background-image: url(../media/images/pray.svg);
+      &:hover {
+        background-image: url(../media/images/prayh.svg);
+      }
+    }
+    .home {
+      right: 6%;
+      background-image: url(../media/images/home.svg);
+      &:hover {
+        background-image: url(../media/images/homeh.svg);
+      }
+    }
+    .salahA,
+    .salahB,
+    .salahC,
+    .salahD,
+    .salahE {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      display: none;
+      .slide1 {
+        display: block;
+        overflow: visible;
+        width: 35%;
+        height: 10.1%;
+        position: absolute;
+        top: 38.5%;
+        right: 0;
+        margin: auto;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        cursor: pointer;
+      }
+      .athkarattr-1 {
+        display: block;
+        overflow: visible;
+        width: 13%;
+        height: 6.1%;
+        position: absolute;
+        top: 25%;
+        right: 8%;
+        cursor: pointer;
+
+        @include mediaQuery($XlargeScreen_min_width) {
+          right: 15% !important;
+        }
+      }
+      .athkarattr-2 {
+        display: block;
+        overflow: visible;
+        width: 20%;
+        height: 10.1%;
+        position: absolute;
+        top: 37.1%;
+        right: 6%;
+        cursor: pointer;
+      }
+      .slide1.athkarattr-2 {
+        display: block;
+        overflow: visible;
+        width: 39%;
+        height: 17.1%;
+        position: absolute;
+        top: 54%;
+        right: 8.6%;
+        cursor: pointer;
+      }
+      .athkarattr-3 {
+        display: block;
+        overflow: visible;
+        width: 25%;
+        height: 6.1%;
+        position: absolute;
+        top: 51%;
+        right: 8%;
+        cursor: pointer;
+      }
+      .athkarattr-4 {
+        display: block;
+        overflow: visible;
+        width: 28%;
+        height: 15.1%;
+        position: absolute;
+        top: 64.1%;
+        right: 8%;
+        cursor: pointer;
+      }
+
+      .boyslaha-container,
+      .girlslaha-container {
+        position: absolute;
+        width: 35%;
+        height: 50%;
+        left: 7%;
+        display: none;
+        top: 45%;
+        .image-salah-boy,
+        .image-salah-girl {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          background-size: contain !important;
+          background-position: center !important;
+          background-repeat: no-repeat !important;
+          cursor: pointer;
+        }
+        .image-salah-boy1,
+        .image-salah-girl1 {
+          position: absolute;
+          width: 25%;
+          height: 25%;
+          background-size: contain !important;
+          background-position: center !important;
+          background-repeat: no-repeat !important;
+          cursor: pointer;
+          left: -7%;
+          top: 21%;
+        }
+      }
+    }
+
+    .salahA {
+      .how-to-pray-slider1 {
+        background-image: url(../media/images/alfagr/1.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/alfagr/boy/boy1.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/alfagr/girl/girl1.svg);
+        }
+      }
+      .how-to-pray-slider2 {
+        background-image: url(../media/images/alfagr/2.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/alfagr/boy/boy2.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/alfagr/girl/girl2.svg);
+        }
+      }
+      .how-to-pray-slider3 {
+        background-image: url(../media/images/alfagr/3.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/alfagr/boy/boy3.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/alfagr/girl/girl3.svg);
+        }
+      }
+      .how-to-pray-slider4 {
+        background-image: url(../media/images/alfagr/4.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/alfagr/boy/boy4.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/alfagr/girl/girl4.svg);
+        }
+      }
+      .how-to-pray-slider5 {
+        background-image: url(../media/images/alfagr/5.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/alfagr/boy/boy5.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/alfagr/girl/girl5.svg);
+        }
+      }
+      .how-to-pray-slider6 {
+        background-image: url(../media/images/alfagr/6.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/alfagr/boy/boy6.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/alfagr/girl/girl6.svg);
+        }
+      }
+      .how-to-pray-slider7 {
+        background-image: url(../media/images/alfagr/7.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/alfagr/boy/boy7.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/alfagr/girl/girl7.svg);
+        }
+      }
+      .how-to-pray-slider8 {
+        background-image: url(../media/images/alfagr/8.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/alfagr/boy/boy8.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/alfagr/girl/girl8.svg);
+        }
+      }
+      .how-to-pray-slider9 {
+        background-image: url(../media/images/alfagr/9.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/alfagr/boy/boy9.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/alfagr/girl/girl9.svg);
+        }
+      }
+      .how-to-pray-slider10 {
+        background-image: url(../media/images/alfagr/10.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/alfagr/boy/boy10.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/alfagr/girl/girl10.svg);
+        }
+      }
+      .how-to-pray-slider11 {
+        background-image: url(../media/images/alfagr/11.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/alfagr/boy/boy11.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/alfagr/girl/girl11.svg);
+        }
+      }
+      .how-to-pray-slider12 {
+        background-image: url(../media/images/alfagr/12.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/alfagr/boy/boy12.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/alfagr/girl/girl12.svg);
+        }
+      }
+      .how-to-pray-slider13 {
+        background-image: url(../media/images/alfagr/13.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/alfagr/boy/boy13.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/alfagr/girl/girl13.svg);
+        }
+      }
+      .how-to-pray-slider14 {
+        background-image: url(../media/images/alfagr/14.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/alfagr/boy/boy14.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/alfagr/girl/girl14.svg);
+        }
+      }
+      .how-to-pray-slider15 {
+        background-image: url(../media/images/alfagr/15.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/alfagr/boy/boy15.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/alfagr/girl/girl15.svg);
+        }
+      }
+      .how-to-pray-slider16 {
+        background-image: url(../media/images/alfagr/16.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/alfagr/boy/boy16.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/alfagr/girl/girl16.svg);
+        }
+      }
+      .how-to-pray-slider17 {
+        background-image: url(../media/images/alfagr/17.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/alfagr/boy/boy17.svg);
+        }
+        .image-salah-boy1 {
+          background-image: url(../media/images/alfagr/boy/boyL3.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/alfagr/girl/girl17.svg);
+        }
+        .image-salah-girl1 {
+          background-image: url(../media/images/alfagr/girl/girlL1.svg);
+        }
+      }
+      .how-to-pray-slider18 {
+        background-image: url(../media/images/alfagr/18.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/alfagr/boy/boy18.svg);
+        }
+        .image-salah-boy1 {
+          background-image: url(../media/images/alfagr/boy/boyL1.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/alfagr/girl/girl18.svg);
+        }
+        .image-salah-girl1 {
+          background-image: url(../media/images/alfagr/girl/girlL2.svg);
+        }
+      }
+      .how-to-pray-slider19 {
+        background-image: url(../media/images/alfagr/19.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/alfagr/boy/boy19.svg);
+        }
+        .image-salah-boy1 {
+          background-image: url(../media/images/alfagr/boy/boyL2.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/alfagr/girl/girl19.svg);
+        }
+        .image-salah-girl1 {
+          background-image: url(../media/images/alfagr/girl/girlL3.svg);
+        }
+      }
+    }
+    .salahB {
+      .how-to-pray-slider1 {
+        background-image: url(../media/images/duhar/1.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/duhar/boy/boy1.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/duhar/girl/girl1.svg);
+        }
+      }
+      .how-to-pray-slider2 {
+        background-image: url(../media/images/duhar/2.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/duhar/boy/boy2.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/duhar/girl/girl2.svg);
+        }
+      }
+      .how-to-pray-slider3 {
+        background-image: url(../media/images/duhar/3.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/duhar/boy/boy3.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/duhar/girl/girl3.svg);
+        }
+      }
+      .how-to-pray-slider4 {
+        background-image: url(../media/images/duhar/4.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/duhar/boy/boy4.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/duhar/girl/girl4.svg);
+        }
+      }
+      .how-to-pray-slider5 {
+        background-image: url(../media/images/duhar/5.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/duhar/boy/boy5.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/duhar/girl/girl5.svg);
+        }
+      }
+      .how-to-pray-slider6 {
+        background-image: url(../media/images/duhar/6.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/duhar/boy/boy6.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/duhar/girl/girl6.svg);
+        }
+      }
+      .how-to-pray-slider7 {
+        background-image: url(../media/images/duhar/7.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/duhar/boy/boy7.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/duhar/girl/girl7.svg);
+        }
+      }
+      .how-to-pray-slider8 {
+        background-image: url(../media/images/duhar/8.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/duhar/boy/boy8.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/duhar/girl/girl8.svg);
+        }
+      }
+      .how-to-pray-slider9 {
+        background-image: url(../media/images/duhar/9.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/duhar/boy/boy9.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/duhar/girl/girl9.svg);
+        }
+      }
+      .how-to-pray-slider10 {
+        background-image: url(../media/images/duhar/10.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/duhar/boy/boy10.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/duhar/girl/girl10.svg);
+        }
+      }
+      .how-to-pray-slider11 {
+        background-image: url(../media/images/duhar/11.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/duhar/boy/boy11.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/duhar/girl/girl11.svg);
+        }
+      }
+      .how-to-pray-slider12 {
+        background-image: url(../media/images/duhar/12.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/duhar/boy/boy12.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/duhar/girl/girl12.svg);
+        }
+      }
+      .how-to-pray-slider13 {
+        background-image: url(../media/images/duhar/13.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/duhar/boy/boy13.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/duhar/girl/girl13.svg);
+        }
+      }
+      .how-to-pray-slider14 {
+        background-image: url(../media/images/duhar/14.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/duhar/boy/boy14.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/duhar/girl/girl14.svg);
+        }
+      }
+      .how-to-pray-slider15 {
+        background-image: url(../media/images/duhar/15.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/duhar/boy/boy15.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/duhar/girl/girl15.svg);
+        }
+      }
+      .how-to-pray-slider16 {
+        background-image: url(../media/images/duhar/16.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/duhar/boy/boy16.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/duhar/girl/girl16.svg);
+        }
+      }
+      .how-to-pray-slider17 {
+        background-image: url(../media/images/duhar/17.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/duhar/boy/boy17.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/duhar/girl/girl17.svg);
+        }
+      }
+      .how-to-pray-slider18 {
+        background-image: url(../media/images/duhar/18.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/duhar/boy/boy18.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/duhar/girl/girl18.svg);
+        }
+      }
+      .how-to-pray-slider19 {
+        background-image: url(../media/images/duhar/19.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/duhar/boy/boy19.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/duhar/girl/girl19.svg);
+        }
+      }
+      .how-to-pray-slider20 {
+        background-image: url(../media/images/duhar/20.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/duhar/boy/boy20.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/duhar/girl/girl20.svg);
+        }
+      }
+      .how-to-pray-slider21 {
+        background-image: url(../media/images/duhar/21.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/duhar/boy/boy21.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/duhar/girl/girl21.svg);
+        }
+      }
+      .how-to-pray-slider22 {
+        background-image: url(../media/images/duhar/22.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/duhar/boy/boy22.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/duhar/girl/girl22.svg);
+        }
+      }
+      .how-to-pray-slider23 {
+        background-image: url(../media/images/duhar/23.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/duhar/boy/boy23.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/duhar/girl/girl23.svg);
+        }
+      }
+      .how-to-pray-slider24 {
+        background-image: url(../media/images/duhar/24.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/duhar/boy/boy24.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/duhar/girl/girl24.svg);
+        }
+      }
+      .how-to-pray-slider25 {
+        background-image: url(../media/images/duhar/25.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/duhar/boy/boy25.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/duhar/girl/girl25.svg);
+        }
+      }
+      .how-to-pray-slider26 {
+        background-image: url(../media/images/duhar/26.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/duhar/boy/boy26.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/duhar/girl/girl26.svg);
+        }
+      }
+      .how-to-pray-slider27 {
+        background-image: url(../media/images/duhar/27.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/duhar/boy/boy27.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/duhar/girl/girl27.svg);
+        }
+      }
+      .how-to-pray-slider28 {
+        background-image: url(../media/images/duhar/28.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/duhar/boy/boy28.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/duhar/girl/girl28.svg);
+        }
+      }
+      .how-to-pray-slider29 {
+        background-image: url(../media/images/duhar/29.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/duhar/boy/boy29.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/duhar/girl/girl29.svg);
+        }
+      }
+      .how-to-pray-slider30 {
+        background-image: url(../media/images/duhar/30.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/duhar/boy/boy30.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/duhar/girl/girl30.svg);
+        }
+      }
+      .how-to-pray-slider31 {
+        background-image: url(../media/images/duhar/31.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/duhar/boy/boy31.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/duhar/girl/girl31.svg);
+        }
+      }
+      .how-to-pray-slider32 {
+        background-image: url(../media/images/duhar/32.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/duhar/boy/boy32.svg);
+        }
+        .image-salah-boy1 {
+          background-image: url(../media/images/duhar/boy/boyL3.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/duhar/girl/girl32.svg);
+        }
+        .image-salah-girl1 {
+          background-image: url(../media/images/duhar/girl/girlL1.svg);
+        }
+      }
+      .how-to-pray-slider33 {
+        background-image: url(../media/images/duhar/33.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/duhar/boy/boy33.svg);
+        }
+        .image-salah-boy1 {
+          background-image: url(../media/images/duhar/boy/boyL1.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/duhar/girl/girl33.svg);
+        }
+        .image-salah-girl1 {
+          background-image: url(../media/images/duhar/girl/girlL2.svg);
+        }
+      }
+      .how-to-pray-slider34 {
+        background-image: url(../media/images/duhar/34.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/duhar/boy/boy34.svg);
+        }
+        .image-salah-boy1 {
+          background-image: url(../media/images/duhar/boy/boyL2.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/duhar/girl/girl34.svg);
+        }
+        .image-salah-girl1 {
+          background-image: url(../media/images/duhar/girl/girlL3.svg);
+        }
+      }
+    }
+    .salahC {
+      .how-to-pray-slider1 {
+        background-image: url(../media/images/aser/1.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/aser/boy/boy1.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/aser/girl/girl1.svg);
+        }
+      }
+      .how-to-pray-slider2 {
+        background-image: url(../media/images/aser/2.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/aser/boy/boy2.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/aser/girl/girl2.svg);
+        }
+      }
+      .how-to-pray-slider3 {
+        background-image: url(../media/images/aser/3.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/aser/boy/boy3.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/aser/girl/girl3.svg);
+        }
+      }
+      .how-to-pray-slider4 {
+        background-image: url(../media/images/aser/4.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/aser/boy/boy4.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/aser/girl/girl4.svg);
+        }
+      }
+      .how-to-pray-slider5 {
+        background-image: url(../media/images/aser/5.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/aser/boy/boy5.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/aser/girl/girl5.svg);
+        }
+      }
+      .how-to-pray-slider6 {
+        background-image: url(../media/images/aser/6.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/aser/boy/boy6.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/aser/girl/girl6.svg);
+        }
+      }
+      .how-to-pray-slider7 {
+        background-image: url(../media/images/aser/7.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/aser/boy/boy7.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/aser/girl/girl7.svg);
+        }
+      }
+      .how-to-pray-slider8 {
+        background-image: url(../media/images/aser/8.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/aser/boy/boy8.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/aser/girl/girl8.svg);
+        }
+      }
+      .how-to-pray-slider9 {
+        background-image: url(../media/images/aser/9.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/aser/boy/boy9.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/aser/girl/girl9.svg);
+        }
+      }
+      .how-to-pray-slider10 {
+        background-image: url(../media/images/aser/10.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/aser/boy/boy10.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/aser/girl/girl10.svg);
+        }
+      }
+      .how-to-pray-slider11 {
+        background-image: url(../media/images/aser/11.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/aser/boy/boy11.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/aser/girl/girl11.svg);
+        }
+      }
+      .how-to-pray-slider12 {
+        background-image: url(../media/images/aser/12.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/aser/boy/boy12.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/aser/girl/girl12.svg);
+        }
+      }
+      .how-to-pray-slider13 {
+        background-image: url(../media/images/aser/13.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/aser/boy/boy13.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/aser/girl/girl13.svg);
+        }
+      }
+      .how-to-pray-slider14 {
+        background-image: url(../media/images/aser/14.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/aser/boy/boy14.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/aser/girl/girl4.svg);
+        }
+      }
+      .how-to-pray-slider15 {
+        background-image: url(../media/images/aser/15.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/aser/boy/boy15.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/aser/girl/girl15.svg);
+        }
+      }
+      .how-to-pray-slider16 {
+        background-image: url(../media/images/aser/16.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/aser/boy/boy16.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/aser/girl/girl16.svg);
+        }
+      }
+      .how-to-pray-slider17 {
+        background-image: url(../media/images/aser/17.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/aser/boy/boy17.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/aser/girl/girl7.svg);
+        }
+      }
+      .how-to-pray-slider18 {
+        background-image: url(../media/images/aser/18.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/aser/boy/boy18.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/aser/girl/girl8.svg);
+        }
+      }
+      .how-to-pray-slider19 {
+        background-image: url(../media/images/aser/19.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/aser/boy/boy19.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/aser/girl/girl19.svg);
+        }
+      }
+      .how-to-pray-slider20 {
+        background-image: url(../media/images/aser/20.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/aser/boy/boy20.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/aser/girl/girl20.svg);
+        }
+      }
+      .how-to-pray-slider21 {
+        background-image: url(../media/images/aser/21.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/aser/boy/boy21.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/aser/girl/girl21.svg);
+        }
+      }
+      .how-to-pray-slider22 {
+        background-image: url(../media/images/aser/22.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/aser/boy/boy22.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/aser/girl/girl22.svg);
+        }
+      }
+      .how-to-pray-slider23 {
+        background-image: url(../media/images/aser/23.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/aser/boy/boy23.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/aser/girl/girl23.svg);
+        }
+      }
+      .how-to-pray-slider24 {
+        background-image: url(../media/images/aser/24.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/aser/boy/boy24.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/aser/girl/girl24.svg);
+        }
+      }
+      .how-to-pray-slider25 {
+        background-image: url(../media/images/aser/25.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/aser/boy/boy25.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/aser/girl/girl25.svg);
+        }
+      }
+      .how-to-pray-slider26 {
+        background-image: url(../media/images/aser/26.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/aser/boy/boy26.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/aser/girl/girl25.svg);
+        }
+      }
+      .how-to-pray-slider27 {
+        background-image: url(../media/images/aser/27.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/aser/boy/boy27.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/aser/girl/girl26.svg);
+        }
+      }
+      .how-to-pray-slider28 {
+        background-image: url(../media/images/aser/28.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/aser/boy/boy28.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/aser/girl/girl28.svg);
+        }
+      }
+      .how-to-pray-slider29 {
+        background-image: url(../media/images/aser/29.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/aser/boy/boy29.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/aser/girl/girl29.svg);
+        }
+      }
+      .how-to-pray-slider30 {
+        background-image: url(../media/images/aser/30.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/aser/boy/boy30.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/aser/girl/girl30.svg);
+        }
+      }
+      .how-to-pray-slider31 {
+        background-image: url(../media/images/aser/31.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/aser/boy/boy31.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/aser/girl/girl31.svg);
+        }
+      }
+      .how-to-pray-slider32 {
+        background-image: url(../media/images/aser/32.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/aser/boy/boy32.svg);
+        }
+        .image-salah-boy1 {
+          background-image: url(../media/images/aser/boy/boyL3.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/aser/girl/girl32.svg);
+        }
+        .image-salah-girl1 {
+          background-image: url(../media/images/aser/girl/girlL1.svg);
+        }
+      }
+      .how-to-pray-slider33 {
+        background-image: url(../media/images/aser/33.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/aser/boy/boy33.svg);
+        }
+        .image-salah-boy1 {
+          background-image: url(../media/images/aser/boy/boyL1.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/aser/girl/girl33.svg);
+        }
+        .image-salah-girl1 {
+          background-image: url(../media/images/aser/girl/girlL2.svg);
+        }
+      }
+      .how-to-pray-slider34 {
+        background-image: url(../media/images/aser/34.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/aser/boy/boy31.svg);
+        }
+        .image-salah-boy1 {
+          background-image: url(../media/images/aser/boy/boyL2.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/aser/girl/girl34.svg);
+        }
+        .image-salah-girl1 {
+          background-image: url(../media/images/aser/girl/girlL3.svg);
+        }
+      }
+    }
+    .salahD {
+      .how-to-pray-slider1 {
+        background-image: url(../media/images/magreb/1.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/magreb/boy/boy1.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/magreb/girl/girl1.svg);
+        }
+      }
+      .how-to-pray-slider2 {
+        background-image: url(../media/images/magreb/2.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/magreb/boy/boy2.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/magreb/girl/girl2.svg);
+        }
+      }
+      .how-to-pray-slider3 {
+        background-image: url(../media/images/magreb/3.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/magreb/boy/boy3.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/magreb/girl/girl3.svg);
+        }
+      }
+      .how-to-pray-slider4 {
+        background-image: url(../media/images/magreb/4.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/magreb/boy/boy4.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/magreb/girl/girl4.svg);
+        }
+      }
+      .how-to-pray-slider5 {
+        background-image: url(../media/images/magreb/5.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/magreb/boy/boy5.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/magreb/girl/girl5.svg);
+        }
+      }
+      .how-to-pray-slider6 {
+        background-image: url(../media/images/magreb/6.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/magreb/boy/boy6.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/magreb/girl/girl6.svg);
+        }
+      }
+      .how-to-pray-slider7 {
+        background-image: url(../media/images/magreb/7.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/magreb/boy/boy7.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/magreb/girl/girl7.svg);
+        }
+      }
+      .how-to-pray-slider8 {
+        background-image: url(../media/images/magreb/8.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/magreb/boy/boy8.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/magreb/girl/girl8.svg);
+        }
+      }
+      .how-to-pray-slider9 {
+        background-image: url(../media/images/magreb/9.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/magreb/boy/boy9.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/magreb/girl/girl9.svg);
+        }
+      }
+      .how-to-pray-slider10 {
+        background-image: url(../media/images/magreb/10.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/magreb/boy/boy10.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/magreb/girl/girl10.svg);
+        }
+      }
+      .how-to-pray-slider11 {
+        background-image: url(../media/images/magreb/11.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/magreb/boy/boy11.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/magreb/girl/girl11.svg);
+        }
+      }
+      .how-to-pray-slider12 {
+        background-image: url(../media/images/magreb/12.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/magreb/boy/boy12.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/magreb/girl/girl12.svg);
+        }
+      }
+      .how-to-pray-slider13 {
+        background-image: url(../media/images/magreb/13.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/magreb/boy/boy13.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/magreb/girl/girl13.svg);
+        }
+      }
+      .how-to-pray-slider14 {
+        background-image: url(../media/images/magreb/14.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/magreb/boy/boy14.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/magreb/girl/girl14.svg);
+        }
+      }
+      .how-to-pray-slider15 {
+        background-image: url(../media/images/magreb/15.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/magreb/boy/boy15.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/magreb/girl/girl15.svg);
+        }
+      }
+      .how-to-pray-slider16 {
+        background-image: url(../media/images/magreb/16.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/magreb/boy/boy16.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/magreb/girl/girl16.svg);
+        }
+      }
+      .how-to-pray-slider17 {
+        background-image: url(../media/images/magreb/17.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/magreb/boy/boy17.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/magreb/girl/girl7.svg);
+        }
+      }
+      .how-to-pray-slider18 {
+        background-image: url(../media/images/magreb/18.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/magreb/boy/boy18.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/magreb/girl/girl8.svg);
+        }
+      }
+      .how-to-pray-slider19 {
+        background-image: url(../media/images/magreb/19.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/magreb/boy/boy19.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/magreb/girl/girl19.svg);
+        }
+      }
+      .how-to-pray-slider20 {
+        background-image: url(../media/images/magreb/20.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/magreb/boy/boy20.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/magreb/girl/girl20.svg);
+        }
+      }
+      .how-to-pray-slider21 {
+        background-image: url(../media/images/magreb/21.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/magreb/boy/boy21.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/magreb/girl/girl21.svg);
+        }
+      }
+      .how-to-pray-slider22 {
+        background-image: url(../media/images/magreb/22.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/magreb/boy/boy22.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/magreb/girl/girl22.svg);
+        }
+      }
+      .how-to-pray-slider23 {
+        background-image: url(../media/images/magreb/23.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/magreb/boy/boy23.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/magreb/girl/girl23.svg);
+        }
+      }
+      .how-to-pray-slider24 {
+        background-image: url(../media/images/magreb/24.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/magreb/boy/boy24.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/magreb/girl/girl24.svg);
+        }
+      }
+      .how-to-pray-slider25 {
+        background-image: url(../media/images/magreb/25.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/magreb/boy/boy25.svg);
+        }
+        .image-salah-boy1 {
+          background-image: url(../media/images/magreb/boy/boyL3.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/magreb/girl/girl25.svg);
+        }
+        .image-salah-girl1 {
+          background-image: url(../media/images/magreb/girl/girlL1.svg);
+        }
+      }
+      .how-to-pray-slider26 {
+        background-image: url(../media/images/magreb/26.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/magreb/boy/boy26.svg);
+        }
+        .image-salah-boy1 {
+          background-image: url(../media/images/magreb/boy/boyL1.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/magreb/girl/girl26.svg);
+        }
+        .image-salah-girl1 {
+          background-image: url(../media/images/magreb/girl/girlL2.svg);
+        }
+      }
+      .how-to-pray-slider27 {
+        background-image: url(../media/images/magreb/27.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/magreb/boy/boy27.svg);
+        }
+        .image-salah-boy1 {
+          background-image: url(../media/images/magreb/boy/boyL2.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/magreb/girl/girl28.svg);
+        }
+        .image-salah-girl1 {
+          background-image: url(../media/images/magreb/girl/girlL3.svg);
+        }
+      }
+    }
+    .salahE {
+      .how-to-pray-slider1 {
+        background-image: url(../media/images/echa/1.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/echa/boy/boy1.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/echa/girl/girl1.svg);
+        }
+      }
+      .how-to-pray-slider2 {
+        background-image: url(../media/images/echa/2.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/echa/boy/boy2.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/echa/girl/girl2.svg);
+        }
+      }
+      .how-to-pray-slider3 {
+        background-image: url(../media/images/echa/3.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/echa/boy/boy3.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/echa/girl/girl3.svg);
+        }
+      }
+      .how-to-pray-slider4 {
+        background-image: url(../media/images/echa/4.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/echa/boy/boy4.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/echa/girl/girl4.svg);
+        }
+      }
+      .how-to-pray-slider5 {
+        background-image: url(../media/images/echa/5.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/echa/boy/boy5.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/echa/girl/girl5.svg);
+        }
+      }
+      .how-to-pray-slider6 {
+        background-image: url(../media/images/echa/6.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/echa/boy/boy6.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/echa/girl/girl6.svg);
+        }
+      }
+      .how-to-pray-slider7 {
+        background-image: url(../media/images/echa/7.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/echa/boy/boy7.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/echa/girl/girl7.svg);
+        }
+      }
+      .how-to-pray-slider8 {
+        background-image: url(../media/images/echa/8.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/echa/boy/boy8.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/echa/girl/girl8.svg);
+        }
+      }
+      .how-to-pray-slider9 {
+        background-image: url(../media/images/echa/9.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/echa/boy/boy9.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/echa/girl/girl9.svg);
+        }
+      }
+      .how-to-pray-slider10 {
+        background-image: url(../media/images/echa/10.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/echa/boy/boy10.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/echa/girl/girl10.svg);
+        }
+      }
+      .how-to-pray-slider11 {
+        background-image: url(../media/images/echa/11.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/echa/boy/boy11.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/echa/girl/girl11.svg);
+        }
+      }
+      .how-to-pray-slider12 {
+        background-image: url(../media/images/echa/12.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/echa/boy/boy12.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/echa/girl/girl12.svg);
+        }
+      }
+      .how-to-pray-slider13 {
+        background-image: url(../media/images/echa/13.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/echa/boy/boy13.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/echa/girl/girl13.svg);
+        }
+      }
+      .how-to-pray-slider14 {
+        background-image: url(../media/images/echa/14.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/echa/boy/boy14.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/echa/girl/girl14.svg);
+        }
+      }
+      .how-to-pray-slider15 {
+        background-image: url(../media/images/echa/15.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/echa/boy/boy15.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/echa/girl/girl15.svg);
+        }
+      }
+      .how-to-pray-slider16 {
+        background-image: url(../media/images/echa/16.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/echa/boy/boy16.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/echa/girl/girl16.svg);
+        }
+      }
+      .how-to-pray-slider17 {
+        background-image: url(../media/images/echa/17.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/echa/boy/boy17.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/echa/girl/girl17.svg);
+        }
+      }
+      .how-to-pray-slider18 {
+        background-image: url(../media/images/echa/18.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/echa/boy/boy18.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/echa/girl/girl18.svg);
+        }
+      }
+      .how-to-pray-slider19 {
+        background-image: url(../media/images/echa/19.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/echa/boy/boy19.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/echa/girl/girl19.svg);
+        }
+      }
+      .how-to-pray-slider20 {
+        background-image: url(../media/images/echa/20.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/echa/boy/boy20.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/echa/girl/girl20.svg);
+        }
+      }
+      .how-to-pray-slider21 {
+        background-image: url(../media/images/echa/21.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/echa/boy/boy21.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/echa/girl/girl21.svg);
+        }
+      }
+      .how-to-pray-slider22 {
+        background-image: url(../media/images/echa/22.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/echa/boy/boy22.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/echa/girl/girl22.svg);
+        }
+      }
+      .how-to-pray-slider23 {
+        background-image: url(../media/images/echa/23.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/echa/boy/boy23.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/echa/girl/girl23.svg);
+        }
+      }
+      .how-to-pray-slider24 {
+        background-image: url(../media/images/echa/24.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/echa/boy/boy24.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/echa/girl/girl24.svg);
+        }
+      }
+      .how-to-pray-slider25 {
+        background-image: url(../media/images/echa/25.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/echa/boy/boy25.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/echa/girl/girl25.svg);
+        }
+      }
+      .how-to-pray-slider26 {
+        background-image: url(../media/images/echa/26.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/echa/boy/boy26.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/echa/girl/girl26.svg);
+        }
+      }
+      .how-to-pray-slider27 {
+        background-image: url(../media/images/echa/27.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/echa/boy/boy27.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/echa/girl/girl27.svg);
+        }
+      }
+      .how-to-pray-slider28 {
+        background-image: url(../media/images/echa/28.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/echa/boy/boy28.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/echa/girl/girl28.svg);
+        }
+      }
+      .how-to-pray-slider29 {
+        background-image: url(../media/images/echa/29.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/echa/boy/boy29.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/echa/girl/girl29.svg);
+        }
+      }
+      .how-to-pray-slider30 {
+        background-image: url(../media/images/echa/30.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/echa/boy/boy30.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/echa/girl/girl30.svg);
+        }
+      }
+      .how-to-pray-slider31 {
+        background-image: url(../media/images/echa/31.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/echa/boy/boy31.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/echa/girl/girl31.svg);
+        }
+      }
+      .how-to-pray-slider32 {
+        background-image: url(../media/images/echa/32.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/echa/boy/boy32.svg);
+        }
+        .image-salah-boy1 {
+          background-image: url(../media/images/echa/boy/boyL3.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/echa/girl/girl32.svg);
+        }
+        .image-salah-girl1 {
+          background-image: url(../media/images/echa/girl/girlL1.svg);
+        }
+      }
+      .how-to-pray-slider33 {
+        background-image: url(../media/images/echa/33.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/echa/boy/boy33.svg);
+        }
+        .image-salah-boy1 {
+          background-image: url(../media/images/echa/boy/boyL1.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/echa/girl/girl33.svg);
+        }
+        .image-salah-girl1 {
+          background-image: url(../media/images/echa/girl/girlL2.svg);
+        }
+      }
+      .how-to-pray-slider34 {
+        background-image: url(../media/images/echa/34.svg);
+        .image-salah-boy {
+          background-image: url(../media/images/echa/boy/boy34.svg);
+        }
+        .image-salah-boy1 {
+          background-image: url(../media/images/echa/boy/boyL2.svg);
+        }
+        .image-salah-girl {
+          background-image: url(../media/images/echa/girl/girl34.svg);
+        }
+        .image-salah-girl1 {
+          background-image: url(../media/images/echa/girl/girlL3.svg);
+        }
+      }
+    }
+
+    .swiper-container {
+      width: 100%;
+      height: 100%;
+      .swiper-wrapper {
+        width: 100%;
+        height: 100%;
+        .swiper-slide {
+          color: white;
+          text-align: center;
+          font-size: 20px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          background-size: contain;
+          background-position: center;
+          background-repeat: no-repeat;
+          width: 100%;
+          height: 100%;
+          .salah-time,
+          .boy,
+          .girl,
+          .salah-time {
+            top: 18%;
+            left: 9%;
+            width: 30%;
+            height: 60%;
+          }
+          .boy,
+          .girl {
+            display: none;
+            top: 32%;
+            left: 9%;
+            width: 38%;
+            height: 60%;
+          }
+        }
+      }
+      .swiper-pagination {
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        margin: 10px;
+        .swiper-pagination-bullet {
+          width: 13px;
+          height: 19px;
+        }
+        .swiper-pagination-bullet-active {
+          background-color: $theme;
+        }
+      }
+    }
+  }
+  .all-games-screen {
+    background-image: url(../media/images/gamesImg/bg.svg);
+    justify-content: space-evenly;
+
+    .title {
+      background-image: url(../media/images/gamesImg/title.svg);
+      display: block;
+      overflow: visible;
+      width: 26%;
+      height: 10%;
+      position: absolute;
+      top: 8%;
+      right: 0;
+      left: 0;
+      margin: auto;
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+
+      // transform: translateY(-170%);
+      // &.animated {
+      //   animation: slideInDown 0.5s 0.4s ease-in-out forwards;
+      // }
+    }
+    .home{
+      display: block;
+    overflow: visible;
+    width: 5.5%;
+    height: 5.5%;
+    position: absolute;
+    bottom: 4%;
+    right: 1%;
+    margin: auto;
+   background: url(../media/images/home.svg);
+    &:hover{
+      background: url(../media/images/homeh.svg);
+
+    }
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    z-index: 999999999;
+    }
+    .iframe-container{
+      display: none;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    z-index: 9999;
+    border: 0;
+    background: rgba(0, 0, 0, .4);
+
+
+      iframe{
+        display: block;
+        overflow: hidden;
+        width: 79.8%;
+        height: 79.9%;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        top: 0;
+        margin: auto;
+        z-index: 9999;
+        border: solid 3px #efefef;
+        border-radius: 1%;
+        background: #fff url(../images/logo1.svg) no-repeat;
+        background-size: 6%;
+        background-position: center;
+    
+      }
+    }
+    .game-item {
+      display: block;
+      overflow: visible;
+      width: 31%;
+      height: 32%;
+      position: absolute;
+      &.game1 {
+        top: 22%;
+        bottom: 0;
+        right: 3%;
+        &:hover{
+          .title-description {
+            background-image: url(../media/images/gamesImg/title1h.svg);
+          }
+        }
+        .image {
+          background-image: url(../media/images/gamesImg/1.png);
+        }
+        .title-description {
+          background-image: url(../media/images/gamesImg/title1.svg);
+        }
+      }
+      &.game2 {
+        &:hover{
+          .title-description {
+            background-image: url(../media/images/gamesImg/title2h.svg);
+          }
+        }
+        .image {
+          background-image: url(../media/images/gamesImg/2.png);
+        }
+        .title-description {
+          background-image: url(../media/images/gamesImg/title2.svg);
+        }
+
+        top: 22%;
+        right: 0;
+        left: 0;
+        margin: auto;
+      }
+      &.game3 {
+        &:hover{
+          .title-description {
+            background-image: url(../media/images/gamesImg/title3h.svg);
+          }
+        }
+        top: 22%;
+        bottom: 0;
+        left: 3%;
+
+        .image {
+          background-image: url(../media/images/gamesImg/3.png);
+        }
+        .title-description {
+          background-image: url(../media/images/gamesImg/title3.svg);
+        }
+      }
+      &.game4 {
+        &:hover{
+          .title-description {
+            background-image: url(../media/images/gamesImg/title4h.svg);
+          }
+        }
+        top: 61%;
+        bottom: 0;
+        right: 3%;
+
+        .image {
+          background-image: url(../media/images/gamesImg/4.png);
+        }
+        .title-description {
+          background-image: url(../media/images/gamesImg/title4.svg);
+        }
+      }
+      &.game5 {
+        &:hover{
+          .title-description {
+            background-image: url(../media/images/gamesImg/title5h.svg);
+          }
+        }
+        top: 61%;
+        right: 0;
+        left: 0;
+        margin: auto;
+        .image {
+          background-image: url(../media/images/gamesImg/5.png);
+        }
+        .title-description {
+          background-image: url(../media/images/gamesImg/title5.svg);
+        }
+      }
+      &.game6 {
+        &:hover{
+          .title-description {
+            background-image: url(../media/images/gamesImg/title6h.svg);
+          }
+        }
+        top: 61%;
+        bottom: 0;
+        left: 3%;
+
+        .image {
+          background-image: url(../media/images/gamesImg/6.png);
+        }
+        .title-description {
+          background-image: url(../media/images/gamesImg/title6.svg);
+        }
+      }
+      .image,
+      .title-description {
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+      .image {
+        display: block;
+        overflow: visible;
+        width: 100%;
+        height: 81%;
+        position: absolute;
+        background-size: contain !important;
+        background-position: center !important;
+        background-repeat: no-repeat !important;
+        cursor: pointer;
+    
+      }
+      .title-description {
+        display: block;
+        overflow: visible;
+        width: 100%;
+        height: 16%;
+        position: absolute;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        margin: auto;
+        top: 100%;
+        cursor: pointer;
+    
+      }
+    }
+  }
+}
+
+.pop-overlay {
+  @extend %overlay;
+  background-color: $overlay-1;
+  visibility: hidden;
+}
+.popup {
+  width: 70vw;
+  height: 40vh;
+  max-height: 90%;
+  padding: 2rem;
+  @extend %fixed-position;
+  z-index: 100000;
+  background-color: $white-1;
+  text-align: center;
+  border-radius: 1rem;
+  visibility: hidden;
+  .phone {
+    width: 2.5rem;
+    height: 4.5rem;
+    position: relative;
+    flex-shrink: 0;
+    border: 0.1875rem solid $black-1;
+    border-radius: 0.3125rem;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-name: rotatePhone;
+    animation-duration: 2s;
+
+    &::after {
+      @extend %phone-child;
+      top: 9%;
+    }
+
+    &::before {
+      @extend %phone-child;
+      bottom: 9%;
+    }
+  }
+  .message {
+    font-family: DarumadropOne-Regular;
+    text-transform: uppercase;
+    font-size: 3rem;
+  }
+}
+.success-wrapper {
+  width: 60%;
+  @extend %fixed-position;
+  z-index: 999999;
+  transition: 0.4s;
+  visibility: hidden;
+
+  &.show {
+    animation-name: successScaleUp;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+  }
+
+  &.hide {
+    animation-name: successScaleDown;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+  }
+
+  @include mediaQuery($medScreen_min_width) {
+    & {
+      width: 45%;
+    }
+  }
+
+  @include mediaQuery($largeScreen_min_width) {
+    & {
+      width: 40%;
+    }
+  }
+
+  @include mediaQuery($XlargeScreen_min_width) {
+    & {
+      width: 30%;
+    }
+  }
+
+  @include mediaQuery($XXlargeScreen_min_width) {
+    & {
+      width: 25%;
+    }
+  }
+
+  .success-card {
+    height: 70vh;
+    position: relative;
+    border-top-right-radius: 0 !important;
+    background: linear-gradient(180deg, $white-3 33.31%, $yellow-3 117.3%);
+    @include mediaQuery($largeScreen_min_width) {
+      & {
+        height: 60vh;
+      }
+    }
+    .closeModal {
+      width: 11%;
+      aspect-ratio: 1;
+      position: absolute;
+      right: 0;
+      top: 0;
+      transform: translate(40%, -36%);
+      background-color: $oranger-1;
+      color: $white-1;
+      font-size: 115%;
+
+      &.animate {
+        .fa-solid {
+          animation-name: rotate;
+          animation-duration: 0.5s;
+          animation-timing-function: ease-in-out;
+          animation-iteration-count: 1;
+        }
+      }
+    }
+
+    .card-wrapper {
+      background: linear-gradient(0deg, $yellow-6 10.87%, $white-1 124.72%);
+
+      .img-wrapper {
+        height: 40%;
+        width: 70%;
+        margin: 0 auto;
+        position: relative;
+        top: -3vh;
+      }
+      .content-card {
+        height: 60%;
+
+        .outer-card {
+          height: 50%;
+          background-color: $oranger-1;
+          box-shadow: 0 0.25rem 0.25rem 0 $shadow-1;
+          transform: rotate(-1.5deg);
+
+          .text-card {
+            background: linear-gradient(
+              to bottom,
+              transparent 20%,
+              $orange-2 20% 45%,
+              transparent 45% 60%,
+              $orange-3 60% 80%,
+              transparent 80%
+            );
+            color: $black-1;
+            font-size: 140%;
+            text-transform: capitalize;
+            font-family: LilitaOne-Regular;
+            .content {
+              .text {
+                position: relative;
+
+                &::before {
+                  content: attr(text);
+                  width: 100%;
+                  position: absolute;
+                  top: 50%;
+                  left: 50%;
+                  transform: translate(-50%, -50%);
+                  z-index: -1;
+                  color: $white-1;
+                  font-size: inherit;
+                  -webkit-text-stroke-width: 0.15rem;
+                  -webkit-text-stroke-color: $white-1;
+                }
+              }
+            }
+
+            .score-icon-wrapper {
+              width: 4rem;
+              height: 80%;
+            }
+          }
+        }
+
+        .arrows {
+          padding: 0.75rem 1rem 0.5rem;
+          .arrow {
+            aspect-ratio: 1;
+            padding: 1vh 1.2vw;
+            background-color: $white-1;
+            font-size: 4vh;
+            box-shadow: 0 0.25rem 0.25rem 0 $shadow-1;
+
+            &.disabled {
+              color: $grey-1;
+            }
+
+            .fa-solid {
+              filter: drop-shadow(0 0.25rem 0.25rem $shadow-1);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.overlay {
+  @extend %overlay;
+  visibility: hidden;
+
+  &.show {
+    visibility: visible;
+  }
+}
+.pause-overlay {
+  width: 100vw;
+  height: 100vh;
+  max-height: 100%;
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background-color: rgba(0, 0, 0, 0.94);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &.hide {
+    display: none;
+  }
+  .message {
+    font-family: DarumadropOne-Regular;
+    text-transform: uppercase;
+    font-size: 6rem;
+  }
+}
+
+/*animations*/
+
+@keyframes skew {
+  0% {
+    transform: skew(-15deg, -15deg); /* تبدأ من المركز */
+  }
+  25% {
+    transform: skew(15deg, 15deg);
+  }
+  50% {
+    transform: skew(-15deg, -15deg);
+  }
+  75% {
+    transform: skew(15deg, 15deg);
+  }
+  100% {
+    transform: skew(0deg, 0deg);
+    /* ستعتمد الحركة النهائية على التنسيقات المختلفة لكل عنصر */
+  }
+}
+
+@keyframes circle1 {
+  0% {
+    transform: translate(40px, 33px) rotate(359deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+}
+
+@keyframes circle2 {
+  0% {
+    transform: translate(381px, 238px) rotate(360deg);
+  }
+  50% {
+    transform: translate(149px, 83px) rotate(180deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+}
+
+@keyframes circle3 {
+  0% {
+    transform: translate(545px, 229px) rotate(360deg);
+  }
+  50% {
+    transform: translate(178px, 45px) rotate(180deg);
+  }
+
+  100% {
+    transform: translate(0, 0) rotate(0);
+  }
+}
+@keyframes circle4 {
+  0% {
+    transform: translate(751px, 246px) rotate(360deg);
+  }
+  25% {
+    transform: translate(541px, 44px) rotate(300deg);
+  }
+  50% {
+    transform: translate(376px, -1px) rotate(180deg);
+  }
+  75% {
+    transform: translate(192px, -20px) rotate(90deg);
+  }
+
+  100% {
+    transform: translate(0, 0) rotate(0);
+  }
+}
+
+@keyframes circle5 {
+  0% {
+    transform: translate(923px, 223px) rotate(360deg);
+  }
+  25% {
+    transform: translate(541px, 44px) rotate(360deg);
+  }
+  50% {
+    transform: translate(376px, -1px) rotate(300deg);
+  }
+  75% {
+    transform: translate(192px, -20px) rotate(180deg);
+  }
+  90% {
+    transform: translate(169px, -45px) rotate(90deg);
+  }
+
+  100% {
+    transform: translate(0, 0) rotate(0);
+  }
+}
+@keyframes slideInDown {
+  0% {
+    transform: translateY(-170%);
+  }
+
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes slideInRight {
+  0% {
+    transform: translateX(100%);
+  }
+
+  100% {
+    transform: translateX(0%);
+  }
+}
+@keyframes zoomIn {
+  0% {
+    transform: scale(0.1);
+  }
+
+  50% {
+    transform: scale(1.3);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes visible {
+  0% {
+    transform: translateZ(-1px) scaleX(0);
+  }
+
+  100% {
+    transform: translateZ(-1px) scaleX(1);
+  }
+}
+
+@keyframes hideGame {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0);
+  }
+}
+@keyframes trueAnswer {
+  0% {
+    width: 0;
+  }
+  50% {
+    width: 120%;
+    background-color: rgb(40, 187, 255);
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes scaleDown {
+  0% {
+    top: 50%;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  100% {
+    top: 0;
+    transform: translate(-50%, -50%) scale(0);
+  }
+}
+
+@keyframes showCards {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes showCards2 {
+  0%,
+  5% {
+    transform: rotateZ(0deg) scale(0);
+  }
+  15% {
+    transform: rotateZ(-15deg) scale(1.1);
+  }
+  20% {
+    transform: rotateZ(10deg);
+  }
+  25% {
+    transform: rotateZ(-10deg);
+  }
+  30% {
+    transform: rotateZ(6deg);
+  }
+  35% {
+    transform: rotateZ(-4deg) scale(1.1);
+  }
+  40%,
+  100% {
+    transform: rotateZ(0deg) scale(1);
+  }
+}
+
+@keyframes vibrate {
+  0% {
+    transform: rotate(-10deg);
+  }
+
+  25% {
+    transform: rotate(0);
+  }
+
+  50% {
+    transform: rotate(10deg);
+  }
+
+  100% {
+    transform: rotate(0);
+  }
+}
+@keyframes successScaleUp {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+  }
+
+  50% {
+    transform: translate(-50%, -50%) scale(1.15);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes successScaleDown {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  50% {
+    transform: translate(-50%, -50%) scale(1.15);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(0);
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotatePhone {
+  0%,
+  10% {
+    transform: rotate(0deg);
+  }
+  40%,
+  60% {
+    transform: rotate(90deg);
+  }
+  95%,
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes animateBtn {
+  0%,
+  5% {
+    transform: rotateZ(0deg);
+  }
+  15% {
+    transform: rotateZ(-15deg);
+  }
+  20% {
+    transform: rotateZ(10deg);
+  }
+  25% {
+    transform: rotateZ(-10deg);
+  }
+  30% {
+    transform: rotateZ(6deg);
+  }
+  35% {
+    transform: rotateZ(-4deg);
+  }
+  40%,
+  100% {
+    transform: rotateZ(0deg);
+  }
+}
